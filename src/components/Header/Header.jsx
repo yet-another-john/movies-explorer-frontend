@@ -5,8 +5,8 @@ function Header() {
   return (
     <header className="header">
       <img className="logo" src={logo} alt="Логотип." />
-      <p className="header__email"></p>
-
+      <p className="header__signup">Регистрация</p>
+      <p className="header__signin">Войти</p>
     </header>
   );
 }
