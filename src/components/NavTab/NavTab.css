@@ -1,10 +1,10 @@
-.navtab {
+.nav-tab {
     margin: 151px auto;
     display: flex;
     gap: 10px;
 }
 
-.navtab__link {
+.nav-tab__link {
     margin: 0;
     min-width: 96px;
     min-height: 36px;

@@ -1,0 +1,55 @@
+.about-project {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.about-project__title {
+    margin: 110px 0 0 70px;
+    padding: 0;
+    width: fit-content;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 22px;
+    letter-spacing: -1px;
+}
+
+.about-project__line {
+    margin: 25px 0 0 70px;
+    max-width: 1140px;
+    border-bottom: 1px solid;
+    border-color: black;
+}
+
+.about-project__container {
+    margin: 70px 0 110px 70px;
+    display: flex;
+    gap: 40px;
+    max-width: 1140px;
+}
+
+.about-project__subcontainer {
+    max-width: 550px;
+}
+
+.about-project__subtitle {
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    letter-spacing: -1px;
+}
+
+.about-project__text {
+    margin: 26px 0 0 0;
+    padding: 0;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    text-align: left;
+}
