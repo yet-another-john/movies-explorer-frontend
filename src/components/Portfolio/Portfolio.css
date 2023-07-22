@@ -1,5 +1,6 @@
 .portfolio {
     margin: 0 auto;
+    padding-bottom: 125px;
     display: flex;
     flex-direction: column;
 }
