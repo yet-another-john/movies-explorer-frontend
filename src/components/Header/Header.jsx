@@ -1,12 +1,16 @@
 import './Header.css';
 import logo from '../../images/logo.svg';
+import Navigation from '../Navigation/Navigation';
 
-function Header() {
+function Header(props) {
   return (
     <header className="header">
       <img className="logo" src={logo} alt="Логотип." />
-      <p className="header__signup">Регистрация</p>
-      <p className="header__signin">Войти</p>
+      {true ? <Navigation /> :
+        <>
+          <p className="header__signup">Регистрация</p>
+          <p className="header__signin">Войти</p>
+        </>}
     </header>
   );
 }
