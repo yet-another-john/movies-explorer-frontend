@@ -63,3 +63,10 @@
     -ms-transform: translateX(16px);
     transform: translateX(16px);
 }
+
+.filter-checkbox__line {
+    margin: 39px 0 10px 70px;
+    max-width: 1140px;
+    border-bottom: 1px solid;
+    border-color: #E8E8E8;
+}
