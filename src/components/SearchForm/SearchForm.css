@@ -1,9 +1,9 @@
 .search-form {
     margin: 0 auto;
     max-width: 1280px;
-    min-height: 228px;
+    min-height: 120px;
     display: flex;
-    outline: 1px red solid;
+    align-items: flex-end;
 }
 
 .search-form__input {
