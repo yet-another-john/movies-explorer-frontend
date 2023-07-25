@@ -79,3 +79,48 @@
     line-height: 20px;
     text-align: left;
 }
+
+
+@media (max-width: 1279px) {
+    .about-me__title {
+        margin: 90px 0 0 50px;
+    }
+
+    .about-me__line {
+        margin: 25px 0 0 50px;
+        max-width: 668px;
+    }
+
+    .about-me__container {
+        margin: 0 0 0 50px;
+    }
+
+    .about-me__subtitle {
+        font-size: 40px;
+        line-height: 40px;
+    }
+
+    .about-me__status {
+        margin-top: 16px;
+        font-size: 12px;
+        line-height: 18px;
+    }
+
+    .about-me__text {
+        margin: 20px 0 0 0;
+        max-width: 364px;
+        font-size: 12px;
+        line-height: 18px;
+    }
+
+    .about-me__image {
+        margin-right: 50px;
+        width: 255px;
+        height: 307px;
+        border-style: none;
+    }
+
+    .about-me__link {
+        margin: 85px 0 0 0;
+    }
+}

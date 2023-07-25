@@ -19,7 +19,7 @@ function AboutMe() {
                     <p className="about-me__link">Github</p>
                 </div>
                 <div className="about-me__subcontainer">
-                    <img src={student} alt="Фото студента."/>
+                    <img className="about-me__image" src={student} alt="Фото студента."/>
                 </div>
             </div>
         </div>

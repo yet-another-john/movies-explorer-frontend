@@ -48,3 +48,13 @@
   text-decoration: none;
   cursor: pointer;
 }
+
+@media (max-width: 1279px) {
+  .logo {
+    margin: 18px 0 0 30px;
+  }
+
+  .header__signin {
+    margin: 21px 31px 0 0;
+  }
+}

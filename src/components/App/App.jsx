@@ -1,13 +1,17 @@
 import './App.css';
 import React from 'react';
-import NotFound from '../NotFound/NotFound';
+import Header from '../Header/Header';
+import Main from '../Main/Main';
+import Footer from '../Footer/Footer';
 
 function App() {
 
   return (
     <div className="app-page">
-      <div className="app-content">  
-        <NotFound />
+      <div className="app-content">
+        <Header />
+        <Main />
+        <Footer />
       </div>
     </div>
   );

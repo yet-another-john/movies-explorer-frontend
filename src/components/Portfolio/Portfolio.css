@@ -44,3 +44,23 @@
 .portfolio__image {
     margin: 20px 75px 0 0;
 }
+
+
+@media (max-width: 1279px) {
+    .portfolio__title {
+        margin: 88px 0 30px 50px;
+    }
+
+    .portfolio__text {
+        margin: 20px 0 0 50px;
+        font-size: 28px;
+    }
+
+    .portfolio__image {
+        margin: 20px 55px 0 0;
+    }
+
+    .portfolio {
+        padding-bottom: 90px;
+    }
+}

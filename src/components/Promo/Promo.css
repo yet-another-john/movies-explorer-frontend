@@ -19,3 +19,17 @@
     letter-spacing: -2px;
     text-align: center;
 }
+
+@media (max-width: 1279px) {
+    .promo {
+        width: 728px;
+        height: 834px;
+    }
+
+    .promo__title {
+        margin: 350px auto 0;
+        font-size: 40px;
+        line-height: 52px;
+        max-width: 660px;
+    }
+}
