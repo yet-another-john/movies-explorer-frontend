@@ -1,18 +1,13 @@
 import './App.css';
 import React from 'react';
-import Header from '../Header/Header';
-import Profile from '../Profile/Profile';
-//import Main from '../Main/Main';
-//import Movies from '../Movies/Movies';
-//import Footer from '../Footer/Footer';
+import Register from '../Register/Register';
 
 function App() {
 
   return (
     <div className="app-page">
-      <div className="app-content">
-        <Header />
-        <Profile />
+      <div className="app-content">  
+        <Register />
       </div>
     </div>
   );
