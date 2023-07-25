@@ -1,13 +1,13 @@
 import './App.css';
 import React from 'react';
-import Register from '../Register/Register';
+import Login from '../Login/Login';
 
 function App() {
 
   return (
     <div className="app-page">
       <div className="app-content">  
-        <Register />
+        <Login />
       </div>
     </div>
   );
