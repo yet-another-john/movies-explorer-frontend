@@ -47,3 +47,14 @@
     text-decoration: none;
     cursor: pointer;
 }
+
+@media (max-width: 1279px) {
+    .search-form {
+        max-width: 768px;
+    }
+
+    .search-form__input {
+        margin: 80px 0px 0px 30px;
+        width: 607px;
+    }
+}

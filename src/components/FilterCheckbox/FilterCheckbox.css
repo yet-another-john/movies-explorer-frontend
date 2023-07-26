@@ -70,3 +70,15 @@
     border-bottom: 1px solid;
     border-color: #E8E8E8;
 }
+
+@media (max-width: 1279px) {
+    .filter-checkbox {
+        margin: 30px auto;
+        max-width: 768px;
+    }
+
+    .filter-checkbox__line {
+        margin: 39px auto 0;
+        max-width: 708px;
+    }
+}

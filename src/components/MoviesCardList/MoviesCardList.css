@@ -9,7 +9,7 @@
 .movies-card-list__button-container {
   margin: 0 auto;
   display: flex;
-  width: 1280px;
+  width: 1140px;
   height: 166px;
 }
 
@@ -24,4 +24,16 @@
   font-style: normal;
   font-weight: 500;
   font-size: 12px;
+}
+
+@media (max-width: 1279px) {
+  .movies-card-list {
+    width: 708px;
+    grid-template-columns: 1fr 1fr;
+    gap: 36px 30px;
+  }
+
+  .movies-card-list__button-container {
+    max-width: 768px;
+  }
 }
