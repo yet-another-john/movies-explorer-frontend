@@ -49,6 +49,23 @@
   cursor: pointer;
 }
 
+.header__menu {
+  margin: 15px 30px 15px 0;
+  width: 44px;
+  height: 44px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  display: none;
+}
+
+.header__menu-line {
+  margin: 8px 8px 0px 2px;
+  width: 28px;
+  height: 3px;
+  background-color: black;
+}
+
 @media (max-width: 1279px) {
   .header {
     margin: 0 auto;
@@ -61,5 +78,10 @@
 
   .header__signin {
     margin: 21px 31px 0 0;
+  }
+
+  .header__menu {
+    display: flex;
+    flex-direction: column;
   }
 }

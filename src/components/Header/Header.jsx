@@ -11,6 +11,11 @@ function Header() {
           <p className="header__signup">Регистрация</p>
           <p className="header__signin">Войти</p>
         </>}
+      <button className="header__menu">
+        <p className="header__menu-line"></p>
+        <p className="header__menu-line"></p>
+        <p className="header__menu-line"></p>
+      </button>
     </header>
   );
 }
