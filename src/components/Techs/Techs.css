@@ -24,10 +24,9 @@
 }
 
 .techs__container {
-    margin: 70px 0 0 70px;
+    margin: 70px auto;
     display: flex;
     gap: 40px;
-    max-width: 1140px;
 }
 
 .techs__subtitle {
@@ -58,6 +57,7 @@
 .techs__container {
     margin: 100px auto;
     display: flex;
+    justify-content: center;
     gap: 10px;
     max-width: 1140px;
 }
@@ -82,6 +82,10 @@
 }
 
 @media (max-width: 1279px) {
+    .techs {
+        max-width: 768px;
+    }
+
     .techs__title {
         margin: 90px 0 0 50px;
     }

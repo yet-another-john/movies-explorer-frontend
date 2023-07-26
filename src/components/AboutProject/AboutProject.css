@@ -4,6 +4,11 @@
     flex-direction: column;
 }
 
+.about-project__main-container {
+    margin: 0 auto;
+    width: 1280px;
+}
+
 .about-project__title {
     margin: 110px 0 0 70px;
     padding: 0;
@@ -120,6 +125,10 @@
 }
 
 @media (max-width: 1279px) {
+    .about-project {
+        max-width: 768px;
+    }
+
     .about-project__title {
         margin: 90px 0 0 50px;
     }

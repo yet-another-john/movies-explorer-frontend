@@ -27,7 +27,7 @@ function AboutProject() {
                     <p id="about-project__fourth-text" className="about-project__text">Front-end</p>
                 </div>
             </div>
-        </div>
+        </div >
     );
 }
 

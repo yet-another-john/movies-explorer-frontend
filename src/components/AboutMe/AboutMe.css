@@ -82,8 +82,13 @@
 
 
 @media (max-width: 1279px) {
+    .about-me {
+        max-width: 768px;
+    }
+
     .about-me__title {
         margin: 90px 0 0 50px;
+        max-width: 768px;
     }
 
     .about-me__line {
