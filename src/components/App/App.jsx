@@ -1,17 +1,13 @@
 import './App.css';
 import React from 'react';
-import Header from '../Header/Header';
-import Movies from '../Movies/Movies';
-import Footer from '../Footer/Footer';
+import NotFound from '../NotFound/NotFound';
 
 function App() {
 
   return (
     <div className="app-page">
       <div className="app-content">
-        <Header />
-        <Movies />
-        <Footer />
+        <NotFound />
       </div>
     </div>
   );

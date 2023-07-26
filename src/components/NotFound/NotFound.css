@@ -32,3 +32,9 @@
     font-size: 14px;
     color: #2BE080;
 }
+
+@media (max-width: 1279px) {
+    .not-found__title {
+        margin: 411px auto 0;
+    }
+}

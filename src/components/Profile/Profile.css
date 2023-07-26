@@ -84,3 +84,17 @@
     text-align: center;
     color: #EE3465;
 }
+
+@media (max-width: 1279px) {
+    .profile__title {
+        margin: 236px auto 0;
+    }
+
+    .profile__name-container {
+        margin: 96px 0 0;
+    }
+
+    .profile__edit {
+        margin: 210px auto 0;
+    }
+}

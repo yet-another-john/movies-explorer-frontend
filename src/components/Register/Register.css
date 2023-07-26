@@ -100,3 +100,11 @@
     color: #2BE080;
     text-decoration: none;
 }
+
+@media (max-width: 1279px) {
+    .register__form {
+        margin: 0 auto;
+        padding-top: 232px;
+        width: 396px;
+    }
+}
