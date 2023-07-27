@@ -10,8 +10,11 @@ import Movies from '../Movies/Movies';
 import SavedMovies from '../SavedMovies/SavedMovies';
 import Profile from '../Profile/Profile';
 import NotFound from '../NotFound/NotFound';
+import PopupMenu from '../PopupMenu/PopupMenu';
 
 function App() {
+
+  const flag = 1;
 
   return (
     <div className="app-page">
@@ -29,28 +32,29 @@ function App() {
           } />
           <Route path="/" element={
             <>
-              <Header />
+              <Header loggedIn={flag} />
               <Main />
               <Footer />
             </>
           } />
           <Route path="/movies" element={
             <>
-              <Header />
+              <Header loggedIn={flag} />
               <Movies />
               <Footer />
+              <PopupMenu />
             </>
           } />
           <Route path="/saved-movies" element={
             <>
-              <Header />
+              <Header loggedIn={flag} />
               <SavedMovies />
               <Footer />
             </>
           } />
           <Route path="/profile" element={
             <>
-              <Header />
+              <Header loggedIn={flag} />
               <Profile />
             </>
           } />
@@ -60,6 +64,7 @@ function App() {
             </>
           } />
         </Routes>
+        <PopupMenu isOpen={flag} />
       </div>
     </div>
   );
