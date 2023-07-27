@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import './Header.css';
 import logo from '../../images/logo.svg';
 import Navigation from '../Navigation/Navigation';
@@ -5,11 +6,11 @@ import Navigation from '../Navigation/Navigation';
 function Header() {
   return (
     <header className="header">
-      <img className="logo" src={logo} alt="Логотип." />
-      {true ? <Navigation /> :
+      <Link className="logo" to="/"><img src={logo} alt="Логотип." /></Link>
+      {0 ? <Navigation /> :
         <>
-          <p className="header__signup">Регистрация</p>
-          <p className="header__signin">Войти</p>
+          <Link className="header__signup" to="/signup">Регистрация</Link>
+          <Link className="header__signin" to="/signin">Войти</Link>
         </>}
       <button className="header__menu">
         <p className="header__menu-line"></p>
