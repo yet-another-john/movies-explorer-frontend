@@ -73,3 +73,27 @@
         margin: 19px auto 0;
     }
 }
+
+@media (max-width: 767px) {
+    .portfolio__title {
+        margin: 68px 0 15px 14px;
+        font-size: 14px;
+    }
+
+    .portfolio__text {
+        margin: 21px 0 0 13px;
+        font-size: 18px;
+        line-height: 28px;
+        letter-spacing: -1px;
+    }
+
+    .portfolio__image {
+        width: 11px;
+        margin: 23px 18px 0 0;
+    }
+
+    .portfolio__line {
+        width: 292px;
+        margin: 19px auto 0;
+    }
+}
