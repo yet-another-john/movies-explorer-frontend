@@ -14,7 +14,7 @@ import PopupMenu from '../PopupMenu/PopupMenu';
 
 function App() {
 
-  const flag = 1;
+  const flag = 0;
 
   return (
     <div className="app-page">

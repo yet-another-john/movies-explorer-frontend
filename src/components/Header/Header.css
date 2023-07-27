@@ -85,3 +85,26 @@
     flex-direction: column;
   }
 }
+
+@media (max-width: 767px) {
+  .header {
+    margin: 0 auto;
+    max-width: 320px;
+  }
+
+  .logo {
+    margin: 18px 0 0 14px;
+  }
+
+  .header__signup {
+    margin: 30px 14px 0 auto;
+    font-size: 10px;
+  }
+
+  .header__signin {
+    margin: 25px 14px 0 0;
+    width: 54px;
+    height: 26px;
+    font-size: 10px;
+  }
+}

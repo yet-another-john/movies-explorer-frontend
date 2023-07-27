@@ -29,3 +29,17 @@
         margin: 314px auto 30px;
     }
 }
+
+@media (max-width: 767px) {
+    .nav-tab {
+        margin: 212px auto 30px;
+        gap: 6px;
+    }
+
+    .nav-tab__link {
+        min-width: 82px;
+        min-height: 26px;
+        border-radius: 6px;
+        font-size: 10px;
+    }
+}
