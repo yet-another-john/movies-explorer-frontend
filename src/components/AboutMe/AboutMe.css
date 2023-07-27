@@ -131,6 +131,10 @@
 }
 
 @media (max-width: 767px) {
+    .about-me {
+        max-width: 320px;
+    }
+
     .about-me__title {
         margin: 54px 0 0 14px;
         font-size: 18px;
