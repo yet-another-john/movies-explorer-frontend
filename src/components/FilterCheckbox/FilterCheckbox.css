@@ -82,3 +82,14 @@
         max-width: 708px;
     }
 }
+
+@media (max-width: 767px) {
+    .filter-checkbox__text {
+        font-size: 11px;
+    }
+
+    .filter-checkbox {
+        margin: 44px auto;
+        max-width: 320px;
+    }
+}

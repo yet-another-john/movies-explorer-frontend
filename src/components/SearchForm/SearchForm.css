@@ -58,3 +58,25 @@
         width: 607px;
     }
 }
+
+@media (max-width: 767px) {
+    .search-form {
+        max-width: 320px;
+        gap: 15px;
+    }
+
+    .search-form__input {
+        margin: 76px 0px 0px 14px;
+        padding: 0 0 0 16px;
+        width: 196px;
+        height: 44px;
+    }
+
+    .search-form__button {
+        margin: 76px 0 0 -5px;
+    }
+
+    .search-form__input::placeholder {
+        font-size: 12px;
+    }
+}

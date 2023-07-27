@@ -107,4 +107,14 @@
     height: 26px;
     font-size: 10px;
   }
+
+  .header__menu {
+    margin: 20px 9px 15px 0;
+  }
+
+  .header__menu-line {
+    margin: 6px 8px 0px 2px;
+    width: 22px;
+    height: 3px;
+  }
 }

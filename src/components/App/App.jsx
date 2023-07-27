@@ -14,7 +14,8 @@ import PopupMenu from '../PopupMenu/PopupMenu';
 
 function App() {
 
-  const flag = 0;
+  const loggedIn = 1;
+  const popupMenuOpen = 0;
 
   return (
     <div className="app-page">
@@ -32,14 +33,14 @@ function App() {
           } />
           <Route path="/" element={
             <>
-              <Header loggedIn={flag} />
+              <Header loggedIn={loggedIn} />
               <Main />
               <Footer />
             </>
           } />
           <Route path="/movies" element={
             <>
-              <Header loggedIn={flag} />
+              <Header loggedIn={loggedIn} />
               <Movies />
               <Footer />
               <PopupMenu />
@@ -47,14 +48,14 @@ function App() {
           } />
           <Route path="/saved-movies" element={
             <>
-              <Header loggedIn={flag} />
+              <Header loggedIn={loggedIn} />
               <SavedMovies />
               <Footer />
             </>
           } />
           <Route path="/profile" element={
             <>
-              <Header loggedIn={flag} />
+              <Header loggedIn={loggedIn} />
               <Profile />
             </>
           } />
@@ -64,7 +65,7 @@ function App() {
             </>
           } />
         </Routes>
-        <PopupMenu isOpen={flag} />
+        <PopupMenu isOpen={popupMenuOpen} />
       </div>
     </div>
   );
