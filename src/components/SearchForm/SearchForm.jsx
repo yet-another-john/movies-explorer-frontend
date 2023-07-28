@@ -2,10 +2,10 @@ import './SearchForm.css';
 
 function SearchForm() {
     return (
-        <div className="search-form">
+        <form className="search-form">
             <input className="search-form__input" type="text" placeholder='Фильм' required/>
-            <p className="search-form__button">Найти</p>
-        </div>
+            <button className="search-form__button">Найти</button>
+        </form>
     );
 }
 

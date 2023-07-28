@@ -4,7 +4,7 @@ import React from 'react';
 function Profile() {
 
     return (
-        <div className="profile">
+        <section className="profile">
             <p className="profile__title">Привет, Виталий!</p>
             <div className="profile__name-container">
                 <p className="profile__name">Имя</p>
@@ -17,7 +17,7 @@ function Profile() {
             </div>
             <p className="profile__edit">Редактировать</p>
             <p className="profile__exit">Выйти из аккаунта</p>
-        </div>
+        </section>
     );
 }
 

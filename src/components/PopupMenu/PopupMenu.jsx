@@ -5,7 +5,7 @@ import closeIcon from '../../images/close-icon.svg';
 
 function PopupMenu(props) {
     return (
-        <div className={`popup ${props.isOpen ? 'popup_opened' : ''}`}>
+        <section className={`popup ${props.isOpen ? 'popup_opened' : ''}`}>
             <div className="popup__container">
                 <img className="popup__close-icon" src={closeIcon} alt="Закрыть меню." />
                 <Link className="popup__link" to="/">Главная</Link>
@@ -18,7 +18,7 @@ function PopupMenu(props) {
                     </div></Link>
                 </div>
             </div>
-        </div>
+        </section>
     );
 }
 

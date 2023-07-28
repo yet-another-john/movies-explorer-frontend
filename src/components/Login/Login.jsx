@@ -7,7 +7,7 @@ import '../Register/Register.css';
 function Login() {
 
     return (
-        <div className="register__form-container">
+        <section className="register__form-container">
             <form className="register__form">
                 <img className="register__logo" src={logo} alt="Логотип." />
                 <h2 className="register__title">Рады видеть!</h2>
@@ -21,7 +21,7 @@ function Login() {
                 <p className="register__signup-question">Ещё не зарегистрированы?
                     <Link className="register__signin-link" to="/signup"> Регистрация</Link></p>
             </form>
-        </div>
+        </section>
     );
 }
 

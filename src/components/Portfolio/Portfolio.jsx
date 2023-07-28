@@ -5,7 +5,7 @@ import link from '../../images/link.svg'
 function Portfolio() {
 
     return (
-        <div className="portfolio">
+        <section className="portfolio">
             <p className="portfolio__title">Портфолио</p>
             <a className="portfolio__container" href="https://github.com/stoliarovea/how-to-learn" target="_blank" rel="noreferrer">
                 <p className="portfolio__text">Статичный сайт</p>
@@ -21,7 +21,7 @@ function Portfolio() {
                 <p className="portfolio__text">Одностраничное приложение</p>
                 <img className="portfolio__image" src={link} alt="Ссылка." />
             </a>
-        </div>
+        </section>
     );
 }
 

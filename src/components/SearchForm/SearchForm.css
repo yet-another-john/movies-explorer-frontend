@@ -28,6 +28,9 @@
 }
 
 .search-form__button {
+    border: none;
+    outline: inherit;
+    align-items: center;
     margin: 82px 0 0 10px;
     padding: 0;
     width: 70px;
@@ -39,7 +42,6 @@
     font-weight: 500;
     font-size: 12px;
     line-height: 16px;
-    text-align: center;
     display: flex;
     flex-direction: column;
     justify-content: center;

@@ -5,7 +5,7 @@ import student from '../../images/student.svg';
 function AboutMe() {
 
     return (
-        <div className="about-me">
+        <section className="about-me">
             <p className="about-me__title">Студент</p>
             <p className="about-me__line"></p>
             <div className="about-me__container">
@@ -22,7 +22,7 @@ function AboutMe() {
                     <img className="about-me__image" src={student} alt="Фото студента."/>
                 </div>
             </div>
-        </div>
+        </section>
     );
 }
 

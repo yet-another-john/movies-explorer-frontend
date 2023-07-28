@@ -8,7 +8,7 @@ import MoviesCard from '../MoviesCard/MoviesCard';
 function SavedMovies() {
 
     return (
-        <>
+        <section>
             <SearchForm />
             <FilterCheckbox />
             <div className="movies-card-list">
@@ -18,7 +18,7 @@ function SavedMovies() {
             </div>
             <div className="saved-movies__container">
             </div>
-        </>
+        </section>
     );
 }
 

@@ -4,7 +4,7 @@ import React from 'react';
 function Footer() {
 
     return (
-        <div className="footer">
+        <footer className="footer">
             <p className="footer__text">Учебный проект Яндекс.Практикум х BeatFilm.</p>
             <p className="footer__line"></p>
             <div className="footer__container">
@@ -14,7 +14,7 @@ function Footer() {
                     <p className="footer__link">Github</p>
                 </div>
             </div>
-        </div>
+        </footer>
     );
 }
 
