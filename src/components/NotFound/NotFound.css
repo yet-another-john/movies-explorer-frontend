@@ -38,3 +38,20 @@
         margin: 411px auto 0;
     }
 }
+
+@media (max-width: 767px) {
+    .not-found__title {
+        margin: 332px auto 0;
+        font-size: 80px;
+    }
+
+    .not-found__subtitle {
+        margin: 13px auto 0;
+        font-size: 12px;
+    }
+
+    .not-found__link {
+        margin: 285px auto 0;
+        font-size: 12px;
+    }
+}

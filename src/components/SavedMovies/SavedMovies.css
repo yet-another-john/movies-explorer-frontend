@@ -1,3 +1,5 @@
 .saved-movies__container {
+    margin: 0 auto;;
     height: 140px;
+    width: 320px;
 }

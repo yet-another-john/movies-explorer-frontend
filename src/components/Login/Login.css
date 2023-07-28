@@ -13,3 +13,11 @@
     border: 0;
     cursor: pointer;
 }
+
+@media (max-width: 767px) {
+    .login__submit-button {
+        margin: 302px auto 0;
+        width: 260px;
+        font-size: 12px;
+    }
+}

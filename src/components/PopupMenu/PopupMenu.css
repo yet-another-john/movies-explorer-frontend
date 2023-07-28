@@ -52,3 +52,17 @@
     margin: 22px 22px 107px 0;
     align-self: end;
 }
+
+@media (max-width: 767px) {
+    .popup__close-icon {
+        margin: 13px 33px 107px 0;
+    }
+
+    .account__container {
+        margin: 417px 15px 0 0;
+    }
+
+    .popup__link {
+        margin: 0 0 22px 0;
+    }
+}

@@ -14,8 +14,8 @@ import PopupMenu from '../PopupMenu/PopupMenu';
 
 function App() {
 
-  const loggedIn = 1;
-  const popupMenuOpen = 0;
+  const loggedIn = 0; //Войти
+  const popupMenuOpen = 0; //Открыть попап
 
   return (
     <div className="app-page">
