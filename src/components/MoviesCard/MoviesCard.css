@@ -1,6 +1,7 @@
 .movies-card {
   width: 364px;
   height: 271px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 8%);
 }
 
 .movies-card__title {

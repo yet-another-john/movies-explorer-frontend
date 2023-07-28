@@ -12,10 +12,10 @@ function Login() {
                 <img className="register__logo" src={logo} alt="Логотип." />
                 <h2 className="register__title">Рады видеть!</h2>
                 <p className="register__imput-name">E-mail</p>
-                <input className="register__imput" placeholder='pochta@yandex.ru' />
+                <input className="register__imput" placeholder='pochta@yandex.ru' required/>
                 <p className="register__line"></p>
                 <p className="register__imput-name">Пароль</p>
-                <input className="register__imput" />
+                <input className="register__imput" required/>
                 <p className="register__line-last-of-type"></p>
                 <button className="login__submit-button" type="submit">Войти</button>
                 <p className="register__signup-question">Ещё не зарегистрированы?

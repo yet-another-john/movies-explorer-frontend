@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import '../Navigation/Navigation.css';
 import icon from '../../images/icon.svg';
 import './PopupMenu.css';
 import closeIcon from '../../images/close-icon.svg';
@@ -12,10 +11,10 @@ function PopupMenu(props) {
                 <Link className="popup__link" to="/">Главная</Link>
                 <Link className="popup__link" to="/movies">Фильмы</Link>
                 <Link className="popup__link" to="/saved-movies">Сохраненные фильмы</Link>
-                <div className="account__container">
-                    <Link className="navigation__text" to="/profile">Аккаунт</Link>
-                    <Link to="/profile"><div className="navigation__icon-container">
-                        <img className="navigation__icon" src={icon} alt="Аватар." />
+                <div className="popup__account-container">
+                    <Link className="popup__navigation-text" to="/profile">Аккаунт</Link>
+                    <Link to="/profile"><div className="popup__navigation-icon-container">
+                        <img className="popup__navigation-icon" src={icon} alt="Аватар." />
                     </div></Link>
                 </div>
             </div>

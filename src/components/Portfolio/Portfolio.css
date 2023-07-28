@@ -20,6 +20,8 @@
 .portfolio__container {
     display: flex;
     justify-content: space-between;
+    text-decoration: none;
+    color: black;
 }
 
 .portfolio__line {

@@ -7,7 +7,7 @@ function FilterCheckbox() {
         <>
             <div className="filter-checkbox">
                 <label className="filter-checkbox__switch">
-                    <input className="filter-checkbox__input" type="checkbox" />
+                    <input className="filter-checkbox__input" type="checkbox" required/>
                     <span className="filter-checkbox__slider"></span>
                 </label>
                 <p className="filter-checkbox__text">Короткометражки</p>

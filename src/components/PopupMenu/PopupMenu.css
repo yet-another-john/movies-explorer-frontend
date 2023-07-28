@@ -28,7 +28,7 @@
     align-items: center;
 }
 
-.account__container {
+.popup__account-container {
     margin-top: 592px;
     display: flex;
     gap: 16px;
@@ -53,12 +53,43 @@
     align-self: end;
 }
 
+.popup__navigation-icon-container {
+    display: flex;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 6px;
+    background-color: #F9F9F9;
+}
+
+.popup__navigation-icon {
+    width: 10px;
+    height: 10px;
+    align-self: center;
+}
+
+.popup__navigation-text {
+    margin: 7px 0 0 0;
+    padding: 0;
+    width: fit-content;
+    height: fit-content;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 18px;
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+    text-decoration: none;
+}
+
 @media (max-width: 767px) {
     .popup__close-icon {
         margin: 13px 33px 107px 0;
     }
 
-    .account__container {
+    .popup__account-container {
         margin: 417px 15px 0 0;
     }
 
