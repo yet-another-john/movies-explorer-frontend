@@ -37,3 +37,16 @@
     max-width: 768px;
   }
 }
+
+@media (max-width: 767px) {
+  .movies-card-list {
+    margin-top: 50px;
+    width: 320px;
+    grid-template-columns: 1fr;
+    gap: 16px 30px;
+  }
+
+  .movies-card-list__button-container {
+    max-width: 320px;
+  }
+}
