@@ -152,6 +152,7 @@
     }
 
     .about-me__image {
+        margin: 0;
         width: 292px;
         height: 352px;
     }
