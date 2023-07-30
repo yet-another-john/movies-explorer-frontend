@@ -1,0 +1,233 @@
+.about-project {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.about-project__main-container {
+    margin: 0 auto;
+    width: 1280px;
+}
+
+.about-project__title {
+    margin: 110px 0 0 70px;
+    padding: 0;
+    width: fit-content;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 22px;
+    letter-spacing: -1px;
+}
+
+.about-project__line {
+    margin: 25px 0 0 70px;
+    max-width: 1140px;
+    border-bottom: 1px solid;
+    border-color: black;
+}
+
+.about-project__container {
+    margin: 70px 0 0 70px;
+    display: flex;
+    gap: 40px;
+    max-width: 1140px;
+}
+
+.about-project__container:nth-of-type(2) {
+    margin: 110px 0 110px 70px;
+    display: flex;
+    gap: 0;
+    max-width: 1140px;
+}
+
+.about-project__subcontainer {
+    max-width: auto;
+}
+
+.about-project__subtitle {
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    letter-spacing: -1px;
+}
+
+#about-project__third-subtitle {
+    margin: 0;
+    padding: 0;
+    width: 228px;
+    height: 36px;
+    background-color: #2BE080;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: #000;
+    text-decoration: none;
+}
+
+#about-project__fourth-subtitle {
+    margin: 0;
+    padding: 0;
+    width: 912px;
+    height: 36px;
+    background-color: #F2F2F2;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: #000;
+    text-decoration: none;
+}
+
+.about-project__text {
+    margin: 26px 0 0 0;
+    padding: 0;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    text-align: left;
+}
+
+#about-project__third-text {
+    margin: 14px 0 0 0;
+    padding: 0;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    text-align: center;
+}
+
+#about-project__fourth-text {
+    margin: 14px 0 0 0;
+    padding: 0;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    text-align: center;
+}
+
+@media (max-width: 1279px) {
+    .about-project {
+        max-width: 768px;
+    }
+
+    .about-project__title {
+        margin: 90px 0 0 50px;
+    }
+
+    .about-project__line {
+        margin: 25px 0 0 50px;
+        max-width: 668px;
+    }
+
+    .about-project__container {
+        margin: 70px 0 0 50px;
+        gap: 30px;
+    }
+
+    .about-project__text {
+        margin: 24px 0 0 0;
+        font-size: 12px;
+        line-height: 18px;
+    }
+
+    .about-project__subcontainer {
+        max-width: 319px;
+    }
+
+    #about-project__subcontainer-last-of-type {
+        max-width: 528px;
+    }
+
+    #about-project__third-subtitle {
+        width: 140px;
+    }
+
+    #about-project__fourth-subtitle {
+        width: 528px;
+    }
+
+    .about-project__container:nth-of-type(2) {
+        margin: 93px 0 87px 50px;
+    }
+}
+
+@media (max-width: 767px) {
+    .about-project {
+        max-width: 320px;
+    }
+
+    .about-project__title {
+        margin: 72px 0 0 19px;
+        font-size: 18px;
+    }
+
+    .about-project__line {
+        margin: 27px 0 0 18px;
+        max-width: 284px;
+    }
+
+    .about-project__container:first-of-type {
+        flex-direction: column;
+        margin: 60px 0 0 17px;
+        gap: 56px;
+        max-width: 284px;
+    }
+
+    .about-project__subtitle {
+        font-size: 18px;
+    }
+
+    .about-project__subcontainer {
+        max-width: 284px;
+    }
+
+    .about-project__text {
+        margin: 20px 0 0 0;
+        font-size: 11px;
+        line-height: 16px;
+    }
+
+    #about-project__third-subtitle {
+        width: 100px;
+        height: 35px;
+    }
+
+    #about-project__fourth-subtitle {
+        width: 184px;
+        height: 35px;
+    }
+
+    .about-project__container:nth-of-type(2) {
+        margin: 58px 0 87px 18px;
+        max-width: 284px;;
+    }
+
+    #about-project__third-text {
+        margin: 6px 0 0 0;
+        font-size: 11px;
+    }
+    
+    #about-project__fourth-text {
+        margin: 6px 0 0 0;
+        font-size: 11px;
+    }
+}

@@ -1,0 +1,149 @@
+.profile__name-container {
+    margin: 123px 0 0;
+    display: flex;
+    gap: 147px;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile__email-container {
+    margin: 17px 0 0;
+    display: flex;
+    gap: 147px;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile__title {
+    margin: 74px auto 0;
+    padding: 0;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    text-align: center;
+}
+
+.profile__name {
+    margin: 0;
+    padding: 0;
+    width: 141px;
+    height: 14px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 11px;
+}
+
+.profile__email {
+    margin: 0;
+    padding: 0;
+    width: 141px;
+    height: 14px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 11px;
+}
+
+.profile__input {
+    width: 122px;
+    height: 14px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 11px;
+    border: none;
+    border-radius: 4px;
+    text-align: right;
+    color: black;
+}
+
+.profile__line {
+    margin: 16px auto 0;
+    width: 410px;
+    border-bottom: 1px solid;
+    border-color: #E8E8E8;
+}
+
+.profile__edit {
+    margin: 220px auto 0;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 13px;
+    text-align: center;
+}
+
+.profile__exit {
+    margin: 16px auto 52px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 13px;
+    text-align: center;
+    color: #EE3465;
+}
+
+@media (max-width: 1279px) {
+    .profile {
+        margin: 0 auto;
+        max-width: 320px;
+    }
+
+    .profile__title {
+        margin: 236px auto 0;
+    }
+
+    .profile__name-container {
+        margin: 96px 0 0;
+    }
+
+    .profile__edit {
+        margin: 210px auto 0;
+    }
+}
+
+@media (max-width: 767px) {
+    .profile__title {
+        margin: 66px auto 0;
+        max-width: 320px;
+    }
+
+    .profile__name-container {
+        margin: 123px auto 0;
+        margin: 80px 0 0;
+        gap: 0;
+        max-width: 320px;
+    }
+
+    .profile__email-container {
+        margin: 17px auto 0;
+        gap: 0;
+        max-width: 320px;
+    }
+
+    .profile__name {
+        width: 130px;
+    }
+
+    .profile__email {
+        width: 130px;
+    }
+
+    .profile__input {
+        width: 129px;
+    }
+
+    .profile__edit {
+        margin: 376px auto 0;
+    }
+
+    .profile__exit {
+        margin: 16px auto;
+    }
+
+    .profile__line {
+        width: 260px;
+    }
+}
