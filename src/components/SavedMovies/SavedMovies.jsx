@@ -12,9 +12,7 @@ function SavedMovies() {
             <SearchForm />
             <FilterCheckbox />
             <div className="movies-card-list">
-                <MoviesCard />
-                <MoviesCard />
-                <MoviesCard />
+
             </div>
             <div className="saved-movies__container">
             </div>

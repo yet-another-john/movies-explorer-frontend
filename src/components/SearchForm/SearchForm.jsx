@@ -1,7 +1,7 @@
 import './SearchForm.css';
 import React from 'react';
 
-function SearchForm() {
+function SearchForm(props) {
 
     const [input, setInput] = React.useState('');
     const [error, setError] = React.useState('');
@@ -13,13 +13,10 @@ function SearchForm() {
 
     function handleSubmit(e) {
         if (input) {
-            fetch('https://api.nomoreparties.co/beatfilm-movies')
-                .then((response) => response.json())
-                .then((data) => data)
+            props.getMovies();
         } else {
             setError("Нужно ввести ключевое слово");
         }
-
         e.preventDefault();
     }
 

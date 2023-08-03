@@ -61,6 +61,10 @@
     width: 339px;
     height: 190px;
   }
+
+  .movies-card__title {
+    min-height: 35px;
+  }
 }
 
 @media (max-width: 767px) {

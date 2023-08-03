@@ -17,6 +17,20 @@ function App() {
   const loggedIn = 0; //Войти
   const popupMenuOpen = 0; //Открыть попап
 
+  const [movies, setMovies] = React.useState([]);
+
+  function getMovies() {
+    fetch('https://api.nomoreparties.co/beatfilm-movies')
+      .then((response) => response.json())
+      .then((data) => {
+        setMovies(data);
+      });
+  }
+
+  React.useEffect(() => {
+
+  }, []);
+
   return (
     <div className="app-page">
       <div className="app-content">
@@ -41,7 +55,7 @@ function App() {
           <Route path="/movies" element={
             <>
               <Header loggedIn={loggedIn} />
-              <Movies />
+              <Movies getMovies={getMovies} movies={movies} />
               <Footer />
               <PopupMenu />
             </>

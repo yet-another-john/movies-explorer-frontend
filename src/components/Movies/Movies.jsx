@@ -6,13 +6,13 @@ import MoviesCardList from '../MoviesCardList/MoviesCardList';
 //import MoviesCard from '../MoviesCard/MoviesCard ';
 //import Preloader from '../Preloader/Preloader';
 
-function Movies() {
+function Movies(props) {
 
     return (
         <section>
-            <SearchForm />
+            <SearchForm getMovies={props.getMovies} />
             <FilterCheckbox />
-            <MoviesCardList />
+            <MoviesCardList movies={props.movies} />
         </section>
     );
 }
