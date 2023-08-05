@@ -18,12 +18,18 @@ function App() {
   const popupMenuOpen = 0; //Открыть попап
 
   const [movies, setMovies] = React.useState([]);
+  const [preloader, setPreloader] = React.useState(false);
 
   function getMovies() {
+    setMovies([]);
+    setPreloader(true);
     fetch('https://api.nomoreparties.co/beatfilm-movies')
       .then((response) => response.json())
       .then((data) => {
+        setPreloader(false);
         setMovies(data);
+      }).catch((err) => {
+        console.log(err);
       });
   }
 
@@ -55,7 +61,7 @@ function App() {
           <Route path="/movies" element={
             <>
               <Header loggedIn={loggedIn} />
-              <Movies getMovies={getMovies} movies={movies} />
+              <Movies getMovies={getMovies} movies={movies} preloader={preloader} />
               <Footer />
               <PopupMenu />
             </>

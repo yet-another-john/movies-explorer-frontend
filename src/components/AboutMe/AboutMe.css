@@ -78,8 +78,16 @@
     font-size: 14px;
     line-height: 20px;
     text-align: left;
+    text-decoration: none;
+    color: black;
+    cursor: pointer;
 }
 
+.about-me__link-link {
+    text-decoration: none;
+    color: black;
+    cursor: pointer;
+}
 
 @media (max-width: 1279px) {
     .about-me {

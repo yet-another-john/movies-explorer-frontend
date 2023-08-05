@@ -25,6 +25,9 @@
     font-style: normal;
     font-weight: 400;
     font-size: 13px;
+    text-decoration: none;
+    color: black;
+    cursor: pointer;
 }
 
 .footer__year {
@@ -49,6 +52,9 @@
     font-style: normal;
     font-weight: 400;
     font-size: 13px;
+    text-decoration: none;
+    color: black;
+    cursor: pointer;
 }
 
 @media (max-width: 1279px) {
