@@ -21,13 +21,13 @@ function App() {
   const [movies, setMovies] = React.useState([]);
   const [preloader, setPreloader] = React.useState(false);
   const [currentUser, setCurrentUser] = React.useState({});
-  const [loggedIn, setLoggedIn] = React.useState(true);
+  const [loggedIn, setLoggedIn] = React.useState(false);
+  const [registered, setRegistered] = React.useState(false);
   const [isPopupOpen, setPopupOpen] = React.useState(false);
   const [requestError, setRequestError] = React.useState(false);
   const [notFoundError, setNotFoundError] = React.useState(false);
   //  const [selectedCard, setSelectedCard] = React.useState({});
-  //  const [registered, setRegistered] = React.useState(false);
-  //  const [userEmail, setUserEmail] = React.useState('');
+    //  const [userEmail, setUserEmail] = React.useState('');
 
   React.useEffect(() => {
     setMovies([]);
