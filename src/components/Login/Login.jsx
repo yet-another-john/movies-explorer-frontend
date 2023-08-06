@@ -14,9 +14,11 @@ function Login() {
                 <p className="register__imput-name">E-mail</p>
                 <input className="register__imput" placeholder='pochta@yandex.ru' required />
                 <p className="register__line"></p>
+                <p className="register__validation-error-text">{true ? 'Что-то пошло не так...' : ''}</p>
                 <p className="register__imput-name">Пароль</p>
                 <input className="register__imput" required />
                 <p className="register__line-last-of-type"></p>
+                <p className="register__validation-error-text">{true ? 'Что-то пошло не так...' : ''}</p>
                 <button className="login__submit-button" type="submit">Войти</button>
                 <p className="register__signup-question">Ещё не зарегистрированы?
                     <Link className="register__signin-link" to="/signup"> Регистрация</Link></p>

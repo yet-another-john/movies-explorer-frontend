@@ -11,10 +11,13 @@ function Profile() {
                 <input className="profile__input" placeholder='Виталий'required/>
             </div>
             <p className="profile__line"></p>
+            <p className="profile__validation-error-text">{true ? 'Что-то пошло не так...' : ''}</p>
             <div className="profile__email-container">
                 <p className="profile__email">E-mail</p>
                 <input className="profile__input"  placeholder='pochta@yandex.ru'required/>
             </div>
+            <p className="profile__line"></p>
+            <p className="profile__validation-error-text">{true ? 'Что-то пошло не так...' : ''}</p>
             <p className="profile__edit">Редактировать</p>
             <p className="profile__exit">Выйти из аккаунта</p>
         </section>

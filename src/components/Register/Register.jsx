@@ -13,13 +13,15 @@ function Register() {
                 <p className="register__imput-name">Имя</p>
                 <input className="register__imput" type='text' pattern="^[A-Za-zА-Яа-яЁё\s\-]+$" required />
                 <p className="register__line"></p>
+                <p className="register__validation-error-text">{true ? 'Что-то пошло не так...' : ''}</p>
                 <p className="register__imput-name">E-mail</p>
                 <input className="register__imput" type='email' pattern="^[^@]+@[^@]+\.[^@]+$" required />
                 <p className="register__line"></p>
+                <p className="register__validation-error-text">{true ? 'Что-то пошло не так...' : ''}</p>
                 <p className="register__imput-name">Пароль</p>
                 <input className="register__imput" type='password' minLength={8} required />
                 <p className="register__line-last-of-type"></p>
-                <p className="register__validation-error-text">{false ? 'Что-то пошло не так...' : ''}</p>
+                <p className="register__validation-error-text">{true ? 'Что-то пошло не так...' : ''}</p>
                 <button className="register__submit-button" type="submit">Зарегистрироваться</button>
                 <p className="register__signup-question">Уже зарегистрированы?
                     <Link className="register__signin-link" to="/signin"> Войти</Link></p>
