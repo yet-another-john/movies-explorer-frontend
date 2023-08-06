@@ -10,8 +10,12 @@ function Movies(props) {
         <section>
             <SearchForm getMovies={props.getMovies} />
             <FilterCheckbox />
-            {props.preloader ? <Preloader /> : <MoviesCardList movies={props.movies} />}
-            
+            {props.preloader ? <Preloader /> :
+                <MoviesCardList
+                    movies={props.movies}
+                    requestError={props.requestError}
+                    notFoundError={props.notFoundError}
+                />}
         </section>
     );
 }
