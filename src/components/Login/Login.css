@@ -14,6 +14,11 @@
     cursor: pointer;
 }
 
+.login__submit-button_disabled {
+    background: #E5E5E5;
+    cursor: auto;
+}
+
 @media (max-width: 767px) {
     .login__submit-button {
         margin: 286px auto 0;

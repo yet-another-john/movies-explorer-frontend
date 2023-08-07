@@ -1,7 +1,20 @@
 class MainApi {
-    constructor({ baseUrl, headers }) {
+    constructor({ baseUrl }) {
         this._baseUrl = baseUrl;
-        this._headers = headers;
+    }
+
+    signUp(email, password, name) {
+        return fetch(`${this._baseUrl}/signup`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                email: email,
+                password: password,
+                name: name
+            })
+        }).then(this._checkResponse);
     }
 
     _checkResponse(res) {
@@ -54,19 +67,6 @@ class MainApi {
         }
     }
 
-    signUp(email, password) {
-        return fetch(`${this._baseUrl}/signup`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                password: password,
-                email: email
-            })
-        }).then(this._checkResponse);
-    }
-
     signIn(email, password) {
         return fetch(`${this._baseUrl}/signin`, {
             method: 'POST',
@@ -92,13 +92,7 @@ class MainApi {
 }
 
 const mainApi = new MainApi({
-    baseUrl: '',
-    headers: {
-        headers: {
-            authorization: `Bearer ${localStorage.getItem('token')}`,
-            'Content-Type': 'application/json',
-        }
-    }
+    baseUrl: 'https://api.stoliarovea-diploma.nomoredomains.work'
 })
 
 export default mainApi;

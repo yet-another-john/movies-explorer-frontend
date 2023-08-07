@@ -68,8 +68,20 @@
     color: #EE3465;
 }
 
+.register__reg-error-text {
+    margin: 60px auto 0;
+    text-align: center;
+    padding: 0;
+    border: none;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    color: #EE3465;
+}
+
 .register__submit-button {
-    margin: 130px auto 0;
+    margin: 60px auto 0;
     background: #2BE080;
     border-radius: 3px;
     width: 396px;
@@ -82,6 +94,11 @@
     color: #fff;
     border: 0;
     cursor: pointer;
+}
+
+.register__submit-button_disabled {
+    background: #E5E5E5;
+    cursor: auto;
 }
 
 .register__signup-question {

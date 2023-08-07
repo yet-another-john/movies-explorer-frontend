@@ -14,6 +14,7 @@ import Profile from '../Profile/Profile';
 import NotFound from '../NotFound/NotFound';
 import PopupMenu from '../PopupMenu/PopupMenu';
 import moviesApi from '../../utils/MoviesApi';
+import mainApi from '../../utils/MainApi';
 
 function App() {
 
@@ -25,28 +26,16 @@ function App() {
   const [registered, setRegistered] = React.useState(false);
   const [isPopupOpen, setPopupOpen] = React.useState(false);
   const [requestError, setRequestError] = React.useState(false);
+  const [signUpRequestError, setSignUpRequestError] = React.useState('');
   const [notFoundError, setNotFoundError] = React.useState(false);
   //  const [selectedCard, setSelectedCard] = React.useState({});
-    //  const [userEmail, setUserEmail] = React.useState('');
+  //  const [userEmail, setUserEmail] = React.useState('');
 
   React.useEffect(() => {
     setMovies([]);
   }, []);
 
   /*
-  function handleSignUp(email, password) {
-    apiAuth.signUp(email, password).then((data) => {
-      if (data) {
-        setRegistered(true);
-        setInfoTooltipOpen(true);
-        navigate('/sign-in');
-      }
-    }).catch((err) => {
-      setRegistered(false);
-      setInfoTooltipOpen(true);
-    });
-  };
-  
   function handleSignIn(email, password) {
     apiAuth.signIn(email, password).then((data) => {
       if (data.token) {
@@ -168,6 +157,20 @@ function App() {
       });
   }
 
+  function handleSignUp(name, email, password) {
+    mainApi.signUp(name, email, password).then((data) => {
+      if (data) {
+        setSignUpRequestError('');
+        setRegistered(true);
+        setLoggedIn(true);
+        navigate('/movies');
+      }
+    }).catch((err) => {
+      setRegistered(false);
+      setSignUpRequestError(err);
+    });
+  };
+
   return (
     <CurrentUserContext.Provider value={currentUser}>
       <div className="app-page">
@@ -176,7 +179,10 @@ function App() {
             <Route path="/signup" element={
               <>
                 <Register
-                  onSingUp={false /*handleSignUp*/} />
+                  onSingUp={handleSignUp}
+                  signUpRequestError={signUpRequestError}
+                  setSignUpRequestError={setSignUpRequestError}
+                />
               </>
             } />
             <Route path="/signin" element={
