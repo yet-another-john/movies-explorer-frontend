@@ -1,14 +1,19 @@
-import React, { useCallback } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import logo from '../../images/logo.svg';
 import './Login.css';
 import '../Register/Register.css';
 
-function Login() {
+function Login(props) {
 
     const [values, setValues] = React.useState({});
     const [errors, setErrors] = React.useState({});
-    const [isValid, setIsValid] = React.useState(false);
+    const [isValid, setIsValid] = React.useState(false)
+
+    function handleSubmit(e) {
+        e.preventDefault();
+        props.onSingIn(values.email, values.password);
+    }
 
     const handleChange = (event) => {
         const target = event.target;
@@ -19,18 +24,9 @@ function Login() {
         setIsValid(target.closest("form").checkValidity());
     };
 
-    const resetForm = useCallback(
-        (newValues = {}, newErrors = {}, newIsValid = false) => {
-            setValues(newValues);
-            setErrors(newErrors);
-            setIsValid(newIsValid);
-        },
-        [setValues, setErrors, setIsValid]
-    );
-
     return (
         <section className="register__form-container">
-            <form className="register__form" onSubmit={resetForm}>
+            <form className="register__form" onSubmit={handleSubmit}>
                 <Link className="register__logo" to="/"><img src={logo} alt="Логотип." /></Link>
                 <h2 className="register__title">Рады видеть!</h2>
                 <p className="register__imput-name">E-mail</p>

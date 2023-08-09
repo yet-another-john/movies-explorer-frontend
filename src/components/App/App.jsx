@@ -27,106 +27,29 @@ function App() {
   const [isPopupOpen, setPopupOpen] = React.useState(false);
   const [requestError, setRequestError] = React.useState(false);
   const [signUpRequestError, setSignUpRequestError] = React.useState('');
+  const [editProfileRequestError, setEditProfileRequestError] = React.useState('');
   const [notFoundError, setNotFoundError] = React.useState(false);
+  const [userEmail, setUserEmail] = React.useState('');
   //  const [selectedCard, setSelectedCard] = React.useState({});
-  //  const [userEmail, setUserEmail] = React.useState('');
-
-  React.useEffect(() => {
-    setMovies([]);
-  }, []);
 
   /*
-  function handleSignIn(email, password) {
-    apiAuth.signIn(email, password).then((data) => {
-      if (data.token) {
-        localStorage.setItem('token', data.token);
-        api._headers.headers.authorization = `Bearer ${localStorage.getItem('token')}`;
-        setUserEmail(email);
-        setLoggedIn(true);
-        navigate('/');
-      } else {
-        setInfoTooltipOpen(true);
-      }
-    }).catch((err) => {
-      console.log(err);
-      setInfoTooltipOpen(true);
-    });
-  };
-  
-  function checkToken() {
-    const token = localStorage.getItem('token');
-    if (token) {
-      apiAuth.checkToken(token).then((data) => {
-        setUserEmail(data.email);
-        setLoggedIn(true);
-        navigate('/');
+    function handleCardLike(card) {
+      const isLiked = card.likes.some(i => i === currentUser._id);
+      api.changeLikeCardStatus(card._id, !isLiked).then((newCard) => {
+        setCards((state) => state.map((c) => c._id === card._id ? newCard : c));
       }).catch((err) => {
         console.log(err);
       });
-    };
-  }
-  
-  function handleLogout() {
-    localStorage.removeItem('token');
-    setLoggedIn(false);
-    navigate('/sign-in');
-  };
-
-  function handleUpdateUser(newData) {
-    api.editProfile(newData.name, newData.about).then((userData) => {
-      setCurrentUser(userData);
-      closeAllPopups();
-    }).catch((err) => {
-      console.log(err);
-    });
-  };
-
-  function handleEditProfileClick() {
-    setEditProfilePopupOpen(!isEditProfilePopupOpen);
-  };
-
-  function handleCardLike(card) {
-    const isLiked = card.likes.some(i => i === currentUser._id);
-    api.changeLikeCardStatus(card._id, !isLiked).then((newCard) => {
-      setCards((state) => state.map((c) => c._id === card._id ? newCard : c));
-    }).catch((err) => {
-      console.log(err);
-    });
-  }
-
-  function closeAllPopups() {
-    setPopupOpen(false);
-    setEditProfilePopupOpen(false);
-    setInfoTooltipOpen(false);
-    setRegistered(false);
-    setSelectedCard({});
-  };
-  
-  React.useEffect(() => {
-    checkToken();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-  
-  React.useEffect(() => {
-    if (loggedIn) {
-      api.getUserInfo()
-        .then((userData) => {
-          setCurrentUser(userData);
-        })
-        .catch((err) => {
-          console.log(err);
-        });
-      api.getInitialCards()
-        .then((data) => {
-          setCards(data);
-        })
-        .catch((err) => {
-          console.log(err);
-        });
     }
-  }, [loggedIn]);
   
-  */
+    function closeAllPopups() {
+      setPopupOpen(false);
+      setEditProfilePopupOpen(false);
+      setInfoTooltipOpen(false);
+      setRegistered(false);
+      setSelectedCard({});
+    };
+    */
 
   function getMovies() {
     setRequestError(false);
@@ -166,10 +89,69 @@ function App() {
         navigate('/movies');
       }
     }).catch((err) => {
+      console.log(err);
       setRegistered(false);
       setSignUpRequestError(err);
     });
   };
+
+  function handleSignIn(email, password) {
+    mainApi.signIn(email, password).then((data) => {
+      if (data) {
+        localStorage.setItem('token', data.token);
+        mainApi._headers.headers.authorization = `Bearer ${localStorage.getItem('token')}`;
+        setUserEmail(email);
+        setLoggedIn(true);
+        navigate('/movies');
+      }
+    }).catch((err) => {
+      console.log(err);
+    });
+  };
+
+  function checkToken() {
+    const token = localStorage.getItem('token');
+    if (token) {
+      mainApi.checkToken(token).then((data) => {
+        setLoggedIn(true);
+      }).catch((err) => {
+        console.log(err);
+      });
+    };
+  }
+
+  function handleLogout() {
+    localStorage.removeItem('token');
+    setLoggedIn(false);
+    navigate('/');
+  };
+
+  function handleUpdateUser(newData) {
+    mainApi.editProfile(newData.name, newData.email).then((userData) => {
+      setEditProfileRequestError('');
+      setCurrentUser(userData);
+    }).catch((err) => {
+      console.log(err);
+      setEditProfileRequestError(err);
+    });
+  };
+
+  React.useEffect(() => {
+    checkToken();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  React.useEffect(() => {
+    if (loggedIn) {
+      mainApi.getUserInfo()
+        .then((userData) => {
+          setCurrentUser(userData);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
+  }, [loggedIn]);
 
   return (
     <CurrentUserContext.Provider value={currentUser}>
@@ -188,14 +170,13 @@ function App() {
             <Route path="/signin" element={
               <>
                 <Login
-                  onSingIn={false /*handleSignIn*/} />
+                  onSingIn={handleSignIn} />
               </>
             } />
             <Route path="/" element={
               <>
                 <Header
-                  loggedIn={loggedIn}
-                  onLogout={false /*handleLogout*/} />
+                  loggedIn={loggedIn} />
                 <Main />
                 <Footer />
               </>
@@ -203,12 +184,10 @@ function App() {
             <Route path="/movies" element={
               <>
                 {loggedIn ? <Header
-                  loggedIn={loggedIn}
-                  onLogout={false /*handleLogout*/} /> : ""}
+                  loggedIn={loggedIn} /> : ""}
                 <ProtectedRouteElement
                   loggedIn={loggedIn}
                   element={Movies}
-                  onEditProfile={false /*handleEditProfileClick*/}
                   onCardLike={false /*handleCardLike*/}
                   getMovies={getMovies}
                   movies={movies}
@@ -221,12 +200,10 @@ function App() {
             <Route path="/saved-movies" element={
               <>
                 {loggedIn ? <Header
-                  loggedIn={loggedIn}
-                  onLogout={false /*handleLogout*/} /> : ""}
+                  loggedIn={loggedIn} /> : ""}
                 <ProtectedRouteElement
                   loggedIn={loggedIn}
                   element={SavedMovies}
-                  onEditProfile={false /*handleEditProfileClick*/}
                   onCardLike={false /*handleCardLike*/}
                   preloader={preloader} />
                 {loggedIn ? <Footer /> : ""}
@@ -235,12 +212,15 @@ function App() {
             <Route path="/profile" element={
               <>
                 {loggedIn ? <Header
-                  loggedIn={loggedIn}
-                  onLogout={false /*handleLogout*/} /> : ""}
+                  loggedIn={loggedIn} /> : ""}
                 <ProtectedRouteElement
                   loggedIn={loggedIn}
                   element={Profile}
-                  onEditProfile={false /*handleEditProfileClick*/} />
+                  currentUser={currentUser}
+                  onEditProfile={handleUpdateUser}
+                  editProfileRequestError={editProfileRequestError}
+                  setEditProfileRequestError={setEditProfileRequestError}
+                  onLogout={handleLogout} />
               </>
             } />
             <Route path='*' element={
