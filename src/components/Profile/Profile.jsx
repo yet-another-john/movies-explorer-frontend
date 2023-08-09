@@ -61,7 +61,7 @@ function Profile(props) {
                 </div>
                 <p className="profile__line"></p>
                 <p className="profile__validation-error-text">{errors.email}</p>
-                <p className="register__reg-error-text">{props.editProfileRequestError ? props.editProfileRequestError : ''}</p>
+                <p className="register__reg-error-text">{props.editProfileRequestResult ? props.editProfileRequestResult : ''}</p>
                 <div className="profile__button-container">
                     <button className={`profile__edit ${!isValid ? 'register__submit-button_disabled' : ''}`} type="submit" disabled={!isValid}>Редактировать</button>
                     <button className="profile__exit" onClick={props.onLogout}>Выйти из аккаунта</button>

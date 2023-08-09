@@ -23,6 +23,12 @@ function Register(props) {
         setIsValid(target.closest("form").checkValidity());
     };
 
+    React.useEffect(() => {
+        if (props.registered) {
+            props.onSingIn(values.email, values.password);
+        }
+    }, [props.registered]);
+
     return (
         <section className="register__form-container">
             <form className="register__form" onSubmit={handleSubmit}>

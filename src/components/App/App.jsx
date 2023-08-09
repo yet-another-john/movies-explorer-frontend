@@ -22,14 +22,13 @@ function App() {
   const [movies, setMovies] = React.useState([]);
   const [preloader, setPreloader] = React.useState(false);
   const [currentUser, setCurrentUser] = React.useState({});
-  const [loggedIn, setLoggedIn] = React.useState(false);
   const [registered, setRegistered] = React.useState(false);
+  const [loggedIn, setLoggedIn] = React.useState(false);
   const [isPopupOpen, setPopupOpen] = React.useState(false);
   const [requestError, setRequestError] = React.useState(false);
   const [signUpRequestError, setSignUpRequestError] = React.useState('');
-  const [editProfileRequestError, setEditProfileRequestError] = React.useState('');
+  const [editProfileRequestResult, setEditProfileRequestResult] = React.useState('');
   const [notFoundError, setNotFoundError] = React.useState(false);
-  const [userEmail, setUserEmail] = React.useState('');
   //  const [selectedCard, setSelectedCard] = React.useState({});
 
   /*
@@ -81,18 +80,17 @@ function App() {
   }
 
   function handleSignUp(name, email, password) {
-    mainApi.signUp(name, email, password).then((data) => {
-      if (data) {
-        setSignUpRequestError('');
-        setRegistered(true);
-        setLoggedIn(true);
-        navigate('/movies');
-      }
-    }).catch((err) => {
-      console.log(err);
-      setRegistered(false);
-      setSignUpRequestError(err);
-    });
+    mainApi.signUp(name, email, password)
+      .then((data) => {
+        if (data) {
+          setSignUpRequestError('');
+          setRegistered(true);
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+        setSignUpRequestError(err);
+      });
   };
 
   function handleSignIn(email, password) {
@@ -100,8 +98,8 @@ function App() {
       if (data) {
         localStorage.setItem('token', data.token);
         mainApi._headers.headers.authorization = `Bearer ${localStorage.getItem('token')}`;
-        setUserEmail(email);
         setLoggedIn(true);
+        setRegistered(false);
         navigate('/movies');
       }
     }).catch((err) => {
@@ -122,17 +120,19 @@ function App() {
 
   function handleLogout() {
     localStorage.removeItem('token');
+    setEditProfileRequestResult('');
     setLoggedIn(false);
     navigate('/');
   };
 
   function handleUpdateUser(newData) {
+    setEditProfileRequestResult('');
     mainApi.editProfile(newData.name, newData.email).then((userData) => {
-      setEditProfileRequestError('');
+      setEditProfileRequestResult('Данные успешно изменены');
       setCurrentUser(userData);
     }).catch((err) => {
       console.log(err);
-      setEditProfileRequestError(err);
+      setEditProfileRequestResult(err);
     });
   };
 
@@ -164,6 +164,8 @@ function App() {
                   onSingUp={handleSignUp}
                   signUpRequestError={signUpRequestError}
                   setSignUpRequestError={setSignUpRequestError}
+                  registered={registered}
+                  onSingIn={handleSignIn}
                 />
               </>
             } />
@@ -218,8 +220,8 @@ function App() {
                   element={Profile}
                   currentUser={currentUser}
                   onEditProfile={handleUpdateUser}
-                  editProfileRequestError={editProfileRequestError}
-                  setEditProfileRequestError={setEditProfileRequestError}
+                  editProfileRequestResult={editProfileRequestResult}
+                  setEditProfileRequestResult={setEditProfileRequestResult}
                   onLogout={handleLogout} />
               </>
             } />
