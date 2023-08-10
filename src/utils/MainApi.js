@@ -63,19 +63,27 @@ class MainApi {
         }).then(this._checkResponse);
     }
 
-    setLike(cardId) {
-        return fetch(`${this._baseUrl}/cards/${cardId}/likes`, {
-            method: 'PUT',
+    setLike(movie) {
+        return fetch(`${this._baseUrl}/movies`, {
+            method: 'POST',
             headers: this._headers.headers,
+            body: JSON.stringify({
+                country: movie.country,
+                director: movie.director,
+                duration: movie.duration,
+                year: movie.year,
+                description: movie.description,
+                image: `${this._baseUrl}${movie.image.url}`,
+                trailerLink: movie.trailerLink,
+                thumbnail: `${this._baseUrl}${movie.image.formats.thumbnail.url}`,
+                nameRU: movie.nameRU,
+                nameEN: movie.nameEN,
+                movieId: movie.id,
+            })
         }).then(this._checkResponse);
     }
 
-    removeLike(cardId) {
-        return fetch(`${this._baseUrl}/cards/${cardId}/likes`, {
-            method: 'DELETE',
-            headers: this._headers.headers,
-        }).then(this._checkResponse);
-    }
+
 
     changeLikeCardStatus(cardId, flag) {
         if (flag) {

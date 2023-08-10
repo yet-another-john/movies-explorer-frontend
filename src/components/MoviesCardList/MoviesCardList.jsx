@@ -17,11 +17,10 @@ function MoviesCardList(props) {
                 {props.movies.length > 0 ?
                     props.movies.map((movie, i) => (
                         <MoviesCard
+                            onCardLike={props.onCardLike}
+                            onCardLikeRemove={props.onCardLikeRemove}
                             key={movie.id}
-                            nameRU={movie.nameRU}
-                            duration={movie.duration}
-                            image={movie.image.url}
-                            trailerLink={movie.trailerLink}
+                            movie={movie}
                         />
                     )) : ""}
             </div>

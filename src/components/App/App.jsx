@@ -20,6 +20,7 @@ function App() {
 
   const navigate = useNavigate();
   const [movies, setMovies] = React.useState([]);
+  const [savedMovies, setSavedMovies] = React.useState([]);
   const [preloader, setPreloader] = React.useState(false);
   const [currentUser, setCurrentUser] = React.useState({});
   const [registered, setRegistered] = React.useState(false);
@@ -29,18 +30,6 @@ function App() {
   const [signUpRequestError, setSignUpRequestError] = React.useState('');
   const [editProfileRequestResult, setEditProfileRequestResult] = React.useState('');
   const [notFoundError, setNotFoundError] = React.useState(false);
-  //  const [selectedCard, setSelectedCard] = React.useState({});
-
-  /*
-    function handleCardLike(card) {
-      const isLiked = card.likes.some(i => i === currentUser._id);
-      api.changeLikeCardStatus(card._id, !isLiked).then((newCard) => {
-        setCards((state) => state.map((c) => c._id === card._id ? newCard : c));
-      }).catch((err) => {
-        console.log(err);
-      });
-    }
-    */
 
   function getMovies() {
     setRequestError(false);
@@ -128,6 +117,22 @@ function App() {
     });
   };
 
+  function handleCardLike(movie) {
+    mainApi.setLike(movie).then((data) => {
+      setSavedMovies(data);
+    }).catch((err) => {
+      console.log(err);
+    });
+  };
+
+  function handleCardLikeRemove(movie) {
+    mainApi.removeLike(movie).then((data) => {
+      console.log(data);
+    }).catch((err) => {
+      console.log(err);
+    });
+  };
+
   React.useEffect(() => {
     checkToken();
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -184,9 +189,11 @@ function App() {
                 <ProtectedRouteElement
                   loggedIn={loggedIn}
                   element={Movies}
-                  onCardLike={false /*handleCardLike*/}
+                  onCardLike={handleCardLike}
+                  onCardLikeRemove={handleCardLikeRemove}
                   getMovies={getMovies}
                   movies={movies}
+                  savedMovies={savedMovies}
                   preloader={preloader}
                   requestError={requestError}
                   notFoundError={notFoundError} />
@@ -227,9 +234,9 @@ function App() {
               </>
             } />
           </Routes>
-          <PopupMenu 
-          isOpen={isPopupOpen}
-          setPopupOpen={setPopupOpen} />
+          <PopupMenu
+            isOpen={isPopupOpen}
+            setPopupOpen={setPopupOpen} />
         </div>
       </div>
     </CurrentUserContext.Provider>

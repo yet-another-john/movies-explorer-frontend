@@ -13,8 +13,11 @@ function Movies(props) {
             {props.preloader ? <Preloader /> :
                 <MoviesCardList
                     movies={props.movies}
+                    savedMovies={props.savedMovies}
                     requestError={props.requestError}
                     notFoundError={props.notFoundError}
+                    onCardLike={props.onCardLike}
+                    onCardLikeRemove={props.onCardLikeRemove}
                 />}
         </section>
     );
