@@ -40,14 +40,6 @@ function App() {
         console.log(err);
       });
     }
-  
-    function closeAllPopups() {
-      setPopupOpen(false);
-      setEditProfilePopupOpen(false);
-      setInfoTooltipOpen(false);
-      setRegistered(false);
-      setSelectedCard({});
-    };
     */
 
   function getMovies() {
@@ -178,7 +170,8 @@ function App() {
             <Route path="/" element={
               <>
                 <Header
-                  loggedIn={loggedIn} />
+                  loggedIn={loggedIn}
+                  setPopupOpen={setPopupOpen} />
                 <Main />
                 <Footer />
               </>
@@ -186,7 +179,8 @@ function App() {
             <Route path="/movies" element={
               <>
                 {loggedIn ? <Header
-                  loggedIn={loggedIn} /> : ""}
+                  loggedIn={loggedIn}
+                  setPopupOpen={setPopupOpen} /> : ""}
                 <ProtectedRouteElement
                   loggedIn={loggedIn}
                   element={Movies}
@@ -202,7 +196,8 @@ function App() {
             <Route path="/saved-movies" element={
               <>
                 {loggedIn ? <Header
-                  loggedIn={loggedIn} /> : ""}
+                  loggedIn={loggedIn}
+                  setPopupOpen={setPopupOpen} /> : ""}
                 <ProtectedRouteElement
                   loggedIn={loggedIn}
                   element={SavedMovies}
@@ -214,7 +209,8 @@ function App() {
             <Route path="/profile" element={
               <>
                 {loggedIn ? <Header
-                  loggedIn={loggedIn} /> : ""}
+                  loggedIn={loggedIn}
+                  setPopupOpen={setPopupOpen} /> : ""}
                 <ProtectedRouteElement
                   loggedIn={loggedIn}
                   element={Profile}
@@ -231,7 +227,9 @@ function App() {
               </>
             } />
           </Routes>
-          <PopupMenu isOpen={isPopupOpen} />
+          <PopupMenu 
+          isOpen={isPopupOpen}
+          setPopupOpen={setPopupOpen} />
         </div>
       </div>
     </CurrentUserContext.Provider>

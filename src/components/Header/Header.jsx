@@ -4,6 +4,11 @@ import logo from '../../images/logo.svg';
 import Navigation from '../Navigation/Navigation';
 
 function Header(props) {
+
+  function handlePopupOpenClick() {
+    props.setPopupOpen(true);
+  };
+
   return (
     <header className="header">
       <Link className="logo" to="/"><img src={logo} alt="Логотип." /></Link>
@@ -14,7 +19,7 @@ function Header(props) {
         </>}
       {props.loggedIn ?
         <>
-          <button className="header__menu">
+          <button className="header__menu" onClick={handlePopupOpenClick}>
             <p className="header__menu-line"></p>
             <p className="header__menu-line"></p>
             <p className="header__menu-line"></p>
