@@ -8,7 +8,9 @@ function Movies(props) {
 
     return (
         <section>
-            <SearchForm getMovies={props.getMovies} />
+            <SearchForm
+                setMoviesSearchInputValue={props.setMoviesSearchInputValue}
+                getMovies={props.getMovies} />
             <FilterCheckbox />
             {props.preloader ? <Preloader /> :
                 <MoviesCardList

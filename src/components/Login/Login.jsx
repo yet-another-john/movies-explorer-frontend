@@ -37,6 +37,7 @@ function Login(props) {
                 <input className="register__imput" name='password' onChange={handleChange} type='password' minLength={8} required />
                 <p className="register__line-last-of-type"></p>
                 <p className="register__validation-error-text">{errors.password}</p>
+                <p className="register__reg-error-text">{props.signInRequestError ? props.signInRequestError : ''}</p>
                 <button className={`login__submit-button ${!isValid ? 'login__submit-button_disabled' : ''}`} type="submit" disabled={!isValid}>Войти</button>
                 <p className="register__signup-question">Ещё не зарегистрированы?
                     <Link className="register__signin-link" to="/signup"> Регистрация</Link></p>

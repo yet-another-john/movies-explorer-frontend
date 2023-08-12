@@ -7,7 +7,8 @@ function SearchForm(props) {
     const [error, setError] = React.useState('');
 
     function handleInputChange(e) {
-        setInput(e.target.value)
+        setInput(e.target.value);
+        props.setMoviesSearchInputValue(e.target.value);
         setError('');
     }
 

@@ -27,6 +27,7 @@
   display: flex;
   justify-content: space-between;
   background-color: #FDFDFD;
+  min-height: 75px;
 }
 
 .movies-card__save-button {

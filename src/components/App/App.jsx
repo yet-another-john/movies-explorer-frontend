@@ -28,8 +28,10 @@ function App() {
   const [isPopupOpen, setPopupOpen] = React.useState(false);
   const [requestError, setRequestError] = React.useState(false);
   const [signUpRequestError, setSignUpRequestError] = React.useState('');
+  const [signInRequestError, setSignInRequestError] = React.useState('');
   const [editProfileRequestResult, setEditProfileRequestResult] = React.useState('');
   const [notFoundError, setNotFoundError] = React.useState(false);
+  const [moviesSearchInputValue, setMoviesSearchInputValue] = React.useState(false);
 
   function getMovies() {
     setRequestError(false);
@@ -48,6 +50,15 @@ function App() {
       })
       .then((data) => {
         setPreloader(false);
+        if (data.length === 0) {
+          setNotFoundError(true);
+        } else {
+          return data.filter(function (movie) {
+            return movie.nameRU.replaceAll(' ', '').toUpperCase().includes(`${moviesSearchInputValue.toUpperCase()}`) || movie.nameEN.replaceAll(' ', '').toUpperCase().includes(`${moviesSearchInputValue.toUpperCase()}`);
+          });
+        }
+      })
+      .then((data) => {
         if (data.length === 0) {
           setNotFoundError(true);
         } else {
@@ -81,10 +92,12 @@ function App() {
         mainApi._headers.headers.authorization = `Bearer ${localStorage.getItem('token')}`;
         setLoggedIn(true);
         setRegistered(false);
+        setSignInRequestError('');
         navigate('/movies');
       }
     }).catch((err) => {
       console.log(err);
+      setSignInRequestError(err);
     });
   };
 
@@ -169,7 +182,10 @@ function App() {
             <Route path="/signin" element={
               <>
                 <Login
-                  onSingIn={handleSignIn} />
+                  onSingIn={handleSignIn}
+                  signInRequestError={signInRequestError}
+                  setSignInRequestError={setSignInRequestError}
+                />
               </>
             } />
             <Route path="/" element={
@@ -196,6 +212,7 @@ function App() {
                   savedMovies={savedMovies}
                   preloader={preloader}
                   requestError={requestError}
+                  setMoviesSearchInputValue={setMoviesSearchInputValue}
                   notFoundError={notFoundError} />
                 {loggedIn ? <Footer /> : ""}
               </>
