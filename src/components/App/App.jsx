@@ -32,6 +32,7 @@ function App() {
   const [editProfileRequestResult, setEditProfileRequestResult] = React.useState('');
   const [notFoundError, setNotFoundError] = React.useState(false);
   const [moviesSearchInputValue, setMoviesSearchInputValue] = React.useState(false);
+  const [checkboxStatus, setCheckboxStatus] = React.useState(false);
 
   function getMovies() {
     setRequestError(false);
@@ -54,7 +55,22 @@ function App() {
           setNotFoundError(true);
         } else {
           return data.filter(function (movie) {
-            return movie.nameRU.replaceAll(' ', '').toUpperCase().includes(`${moviesSearchInputValue.toUpperCase()}`) || movie.nameEN.replaceAll(' ', '').toUpperCase().includes(`${moviesSearchInputValue.toUpperCase()}`);
+            if (checkboxStatus) {
+              return (movie.nameRU.replaceAll(' ', '')
+                .toUpperCase()
+                .includes(`${moviesSearchInputValue.toUpperCase()}`) ||
+                movie.nameEN.replaceAll(' ', '')
+                  .toUpperCase()
+                  .includes(`${moviesSearchInputValue.toUpperCase()}`)) &&
+                movie.duration <= 40;
+            } else {
+              return movie.nameRU.replaceAll(' ', '')
+                .toUpperCase()
+                .includes(`${moviesSearchInputValue.toUpperCase()}`) ||
+                movie.nameEN.replaceAll(' ', '')
+                  .toUpperCase()
+                  .includes(`${moviesSearchInputValue.toUpperCase()}`);
+            }
           });
         }
       })
@@ -211,6 +227,7 @@ function App() {
                   movies={movies}
                   savedMovies={savedMovies}
                   preloader={preloader}
+                  setCheckboxStatus={setCheckboxStatus}
                   requestError={requestError}
                   setMoviesSearchInputValue={setMoviesSearchInputValue}
                   notFoundError={notFoundError} />

@@ -11,7 +11,8 @@ function Movies(props) {
             <SearchForm
                 setMoviesSearchInputValue={props.setMoviesSearchInputValue}
                 getMovies={props.getMovies} />
-            <FilterCheckbox />
+            <FilterCheckbox
+                setCheckboxStatus={props.setCheckboxStatus} />
             {props.preloader ? <Preloader /> :
                 <MoviesCardList
                     movies={props.movies}
