@@ -14,7 +14,7 @@ function SearchForm(props) {
 
     function handleSubmit(e) {
         if (input) {
-            props.getMovies();
+            props.getMovies(props.checkboxStatus);
         } else {
             setError("Нужно ввести ключевое слово");
         }

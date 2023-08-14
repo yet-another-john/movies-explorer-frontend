@@ -31,10 +31,9 @@ function App() {
   const [signInRequestError, setSignInRequestError] = React.useState('');
   const [editProfileRequestResult, setEditProfileRequestResult] = React.useState('');
   const [notFoundError, setNotFoundError] = React.useState(false);
-  const [moviesSearchInputValue, setMoviesSearchInputValue] = React.useState(false);
-  const [checkboxStatus, setCheckboxStatus] = React.useState(false);
+  const [moviesSearchInputValue, setMoviesSearchInputValue] = React.useState('');
 
-  function getMovies() {
+  function getMovies(checkboxStatus) {
     setRequestError(false);
     setNotFoundError(false);
     setMovies([]);
@@ -164,6 +163,7 @@ function App() {
 
   React.useEffect(() => {
     checkToken();
+    setMovies([]);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -227,9 +227,9 @@ function App() {
                   movies={movies}
                   savedMovies={savedMovies}
                   preloader={preloader}
-                  setCheckboxStatus={setCheckboxStatus}
                   requestError={requestError}
                   setMoviesSearchInputValue={setMoviesSearchInputValue}
+                  moviesSearchInputValue={moviesSearchInputValue}
                   notFoundError={notFoundError} />
                 {loggedIn ? <Footer /> : ""}
               </>

@@ -1,18 +1,13 @@
 import './FilterCheckbox.css';
 import React from 'react';
-import { useState } from 'react';
 
 function FilterCheckbox(props) {
 
-    const [isChecked, setIsChecked] = useState(false);
-
     const handleChange = event => {
-        if (event.target.checked) {
-            props.setCheckboxStatus(true);
-        } else {
-            props.setCheckboxStatus(false);
+        if (props.moviesSearchInputValue) {
+            props.setCheckboxStatus(event.target.checked);
+            props.getMovies(event.target.checked);
         }
-        setIsChecked(current => !current);
     };
 
     return (
@@ -23,7 +18,6 @@ function FilterCheckbox(props) {
                         id="checkbox"
                         className="filter-checkbox__input"
                         type="checkbox"
-                        value={isChecked}
                         onChange={handleChange}
                         required />
                     <span className="filter-checkbox__slider"></span>
