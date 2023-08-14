@@ -78,6 +78,12 @@ function App() {
           setNotFoundError(true);
         } else {
           setMovies(data);
+          localStorage.setItem('moviesSearchInputValue', moviesSearchInputValue);
+          localStorage.setItem('checkboxStatus', checkboxStatus);
+          localStorage.setItem('movies', data);
+          console.log(localStorage.getItem('moviesSearchInputValue'));
+          console.log(localStorage.getItem('checkboxStatus'));
+          console.log(localStorage.getItem('movies'));
         }
       })
       .catch((err) => {
@@ -128,7 +134,7 @@ function App() {
   }
 
   function handleLogout() {
-    localStorage.removeItem('token');
+    localStorage.clear();
     setEditProfileRequestResult('');
     setLoggedIn(false);
     navigate('/');
