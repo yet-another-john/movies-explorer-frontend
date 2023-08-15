@@ -6,17 +6,15 @@ import Preloader from '../Preloader/Preloader';
 
 function Movies(props) {
 
-    const [checkboxStatus, setCheckboxStatus] = React.useState('');
-
     return (
         <section>
             <SearchForm
                 setMoviesSearchInputValue={props.setMoviesSearchInputValue}
-                checkboxStatus={checkboxStatus}
+                checkboxStatus={props.checkboxStatus}
                 getMovies={props.getMovies} />
             <FilterCheckbox
                 movies={props.movies}
-                setCheckboxStatus={setCheckboxStatus}
+                setCheckboxStatus={props.setCheckboxStatus}
                 moviesSearchInputValue={props.moviesSearchInputValue}
                 getMovies={props.getMovies} />
             {props.preloader ? <Preloader /> :

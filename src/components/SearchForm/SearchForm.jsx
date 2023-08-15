@@ -3,7 +3,7 @@ import React from 'react';
 
 function SearchForm(props) {
 
-    const [input, setInput] = React.useState('');
+    const [input, setInput] = React.useState('' || localStorage.getItem('moviesSearchInputValue'));
     const [error, setError] = React.useState('');
 
     function handleInputChange(e) {

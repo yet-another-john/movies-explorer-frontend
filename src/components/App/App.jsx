@@ -32,6 +32,7 @@ function App() {
   const [editProfileRequestResult, setEditProfileRequestResult] = React.useState('');
   const [notFoundError, setNotFoundError] = React.useState(false);
   const [moviesSearchInputValue, setMoviesSearchInputValue] = React.useState('');
+  const [checkboxStatus, setCheckboxStatus] = React.useState('');
 
   function getMovies(checkboxStatus) {
     setRequestError(false);
@@ -79,11 +80,11 @@ function App() {
         } else {
           setMovies(data);
           localStorage.setItem('moviesSearchInputValue', moviesSearchInputValue);
-          localStorage.setItem('checkboxStatus', checkboxStatus);
-          localStorage.setItem('movies', data);
+          localStorage.setItem('checkboxStatus', checkboxStatus || false);
+          localStorage.setItem('movies', JSON.stringify(data));
           console.log(localStorage.getItem('moviesSearchInputValue'));
           console.log(localStorage.getItem('checkboxStatus'));
-          console.log(localStorage.getItem('movies'));
+          console.log(JSON.parse(localStorage.getItem('movies')));
         }
       })
       .catch((err) => {
@@ -135,6 +136,7 @@ function App() {
 
   function handleLogout() {
     localStorage.clear();
+    setMovies([]);
     setEditProfileRequestResult('');
     setLoggedIn(false);
     navigate('/');
@@ -169,7 +171,11 @@ function App() {
 
   React.useEffect(() => {
     checkToken();
-    setMovies([]);
+    if (localStorage.getItem('movies')) {
+      setMoviesSearchInputValue(localStorage.getItem('moviesSearchInputValue'));
+      setCheckboxStatus(localStorage.getItem('checkboxStatus'));
+      setMovies(JSON.parse(localStorage.getItem('movies')));
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -236,6 +242,8 @@ function App() {
                   requestError={requestError}
                   setMoviesSearchInputValue={setMoviesSearchInputValue}
                   moviesSearchInputValue={moviesSearchInputValue}
+                  setCheckboxStatus={setCheckboxStatus}
+                  checkboxStatus={checkboxStatus}
                   notFoundError={notFoundError} />
                 {loggedIn ? <Footer /> : ""}
               </>
