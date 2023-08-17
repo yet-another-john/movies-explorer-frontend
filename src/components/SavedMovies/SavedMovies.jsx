@@ -1,21 +1,30 @@
 import React from 'react';
-import '../MoviesCardList/MoviesCardList.css';
-import './SavedMovies.css'
 import SearchForm from '../SearchForm/SearchForm';
 import FilterCheckbox from '../FilterCheckbox/FilterCheckbox';
-import MoviesCard from '../MoviesCard/MoviesCard';
+import SavedMoviesCardList from '../SavedMoviesCardList/SavedMoviesCardList';
+import mainApi from '../../utils/MainApi';
 
-function SavedMovies() {
+function SavedMovies(props) {
+
+    React.useEffect(() => {
+        mainApi.getSavedMovies()
+            .then((data) => {
+                props.setSavedMovies(data);
+                console.log(data);
+            })
+            .catch((err) => {
+                console.log(err);
+            });
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
 
     return (
         <section>
             <SearchForm />
             <FilterCheckbox />
-            <div className="movies-card-list">
-
-            </div>
-            <div className="saved-movies__container">
-            </div>
+            <SavedMoviesCardList
+                savedMovies={props.savedMovies}
+            />
         </section>
     );
 }

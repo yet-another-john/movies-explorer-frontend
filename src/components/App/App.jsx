@@ -128,6 +128,7 @@ function App() {
     if (token) {
       mainApi.checkToken(token).then((data) => {
         setLoggedIn(true);
+        console.log(token);
       }).catch((err) => {
         console.log(err);
       });
@@ -155,7 +156,7 @@ function App() {
 
   function handleCardLike(movie) {
     mainApi.setLike(movie).then((data) => {
-      setSavedMovies(data);
+      console.log(data);
     }).catch((err) => {
       console.log(err);
     });
@@ -256,6 +257,8 @@ function App() {
                 <ProtectedRouteElement
                   loggedIn={loggedIn}
                   element={SavedMovies}
+                  savedMovies={savedMovies}
+                  setSavedMovies={setSavedMovies}
                   onCardLike={false /*handleCardLike*/}
                   preloader={preloader} />
                 {loggedIn ? <Footer /> : ""}

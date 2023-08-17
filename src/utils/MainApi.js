@@ -42,6 +42,10 @@ class MainApi {
         return fetch(`${this._baseUrl}/users/me`, this._headers).then(this._checkResponse);
     }
 
+    getSavedMovies() {
+        return fetch(`${this._baseUrl}/movies`, this._headers).then(this._checkResponse);
+    }
+
     checkToken(token) {
         return fetch(`${this._baseUrl}/users/me`, {
             method: 'GET',
@@ -73,7 +77,7 @@ class MainApi {
                 duration: movie.duration,
                 year: movie.year,
                 description: movie.description,
-                image: `${this._baseUrl}${movie.image.url}`,
+                image: `https://api.nomoreparties.co${movie.image.url}`,
                 trailerLink: movie.trailerLink,
                 thumbnail: `${this._baseUrl}${movie.image.formats.thumbnail.url}`,
                 nameRU: movie.nameRU,
@@ -82,8 +86,6 @@ class MainApi {
             })
         }).then(this._checkResponse);
     }
-
-
 
     changeLikeCardStatus(cardId, flag) {
         if (flag) {
