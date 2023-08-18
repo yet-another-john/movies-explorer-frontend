@@ -24,6 +24,8 @@ function SavedMovies(props) {
             <FilterCheckbox />
             <SavedMoviesCardList
                 savedMovies={props.savedMovies}
+                onCardDislike={props.onCardDislike}
+                setSavedMovies={props.setSavedMovies}
             />
         </section>
     );

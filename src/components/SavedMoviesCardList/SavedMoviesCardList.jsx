@@ -18,9 +18,10 @@ function SavedMoviesCardList(props) {
                     props.savedMovies.map((movie, i) => (
                         <SavedMoviesCard
                             onCardLike={props.onCardLike}
-                            onCardLikeRemove={props.onCardLikeRemove}
+                            onCardDislike={props.onCardDislike}
                             key={movie._id}
                             movie={movie}
+                            setSavedMovies={props.setSavedMovies}
                         />
                     )) : ""}
             </div>

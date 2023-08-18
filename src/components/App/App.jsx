@@ -259,7 +259,7 @@ function App() {
                   element={SavedMovies}
                   savedMovies={savedMovies}
                   setSavedMovies={setSavedMovies}
-                  onCardLike={false /*handleCardLike*/}
+                  onCardDislike={handleCardLikeRemove}
                   preloader={preloader} />
                 {loggedIn ? <Footer /> : ""}
               </>

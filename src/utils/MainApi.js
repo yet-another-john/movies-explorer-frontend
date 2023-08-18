@@ -87,6 +87,13 @@ class MainApi {
         }).then(this._checkResponse);
     }
 
+    removeLike(movie) {
+        return fetch(`${this._baseUrl}/movies/${movie._id}`, {
+          method: 'DELETE',
+          headers: this._headers.headers,
+        }).then(this._checkResponse);
+      }
+
     changeLikeCardStatus(cardId, flag) {
         if (flag) {
             return fetch(`${this._baseUrl}/cards/${cardId}/likes`, {
