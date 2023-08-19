@@ -4,6 +4,10 @@ import SavedMoviesCard from '../SavedMoviesCard/SavedMoviesCard';
 
 function SavedMoviesCardList(props) {
 
+    React.useEffect(() => {
+        
+    }, [props.savedMovies]);
+
     return (
         <section>
             {props.notFoundError ? <p className="movies-card-list__not-found">Ничего не найдено.</p> : ""}

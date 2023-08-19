@@ -9,7 +9,7 @@ function SavedMovies(props) {
     React.useEffect(() => {
         mainApi.getSavedMovies()
             .then((data) => {
-                props.setSavedMovies(data);
+                props.setSavedMovies(data.reverse());
                 console.log(data);
             })
             .catch((err) => {

@@ -21,6 +21,7 @@ function MoviesCardList(props) {
                             onCardLikeRemove={props.onCardLikeRemove}
                             key={movie.id}
                             movie={movie}
+                            savedMovies={props.savedMovies}
                         />
                     )) : ""}
             </div>

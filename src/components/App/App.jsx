@@ -140,6 +140,7 @@ function App() {
     setMovies([]);
     setEditProfileRequestResult('');
     setLoggedIn(false);
+    setCheckboxStatus('');
     navigate('/');
   };
 
@@ -165,6 +166,14 @@ function App() {
   function handleCardLikeRemove(movie) {
     mainApi.removeLike(movie).then((data) => {
       console.log(data);
+      mainApi.getSavedMovies()
+        .then((data) => {
+          setSavedMovies(data);
+          console.log(data);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
     }).catch((err) => {
       console.log(err);
     });
@@ -188,6 +197,14 @@ function App() {
         })
         .catch((err) => {
           console.log(err);
+        });
+        mainApi.getSavedMovies()
+        .then((data) => {
+            setSavedMovies(data.reverse());
+            console.log(data);
+        })
+        .catch((err) => {
+            console.log(err);
         });
     }
   }, [loggedIn]);

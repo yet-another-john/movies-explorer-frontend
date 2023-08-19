@@ -10,12 +10,19 @@ function MoviesCard(props) {
 
     function handleCardClick() {
         if (isLiked) {
-//            props.onCardLikeRemove(props.movie);
+            props.onCardLikeRemove(props.savedMovies.find(i => i.movieId === props.movie.id));
         } else {
             props.onCardLike(props.movie);
         }
         setisLiked(!isLiked);
     };
+
+    React.useEffect(() => {
+        if (props.savedMovies.some(i => i.movieId === props.movie.id)) {
+            setisLiked(true);
+        }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
 
     return (
         <div className="movies-card">
