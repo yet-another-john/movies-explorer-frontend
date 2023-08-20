@@ -188,6 +188,15 @@ function App() {
   function handleCardLike(movie) {
     mainApi.setLike(movie).then((data) => {
       console.log(data);
+      mainApi.getSavedMovies()
+        .then((data) => {
+          setSavedMovies(data);
+          setSearchedMovies(data);
+          console.log(data);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
     }).catch((err) => {
       console.log(err);
     });
@@ -199,6 +208,7 @@ function App() {
       mainApi.getSavedMovies()
         .then((data) => {
           setSavedMovies(data);
+          setSearchedMovies(data);
           console.log(data);
         })
         .catch((err) => {

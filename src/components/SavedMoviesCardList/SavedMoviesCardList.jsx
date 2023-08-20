@@ -5,7 +5,7 @@ import SavedMoviesCard from '../SavedMoviesCard/SavedMoviesCard';
 function SavedMoviesCardList(props) {
 
     React.useEffect(() => {
-        
+
     }, [props.savedMovies]);
 
     return (
