@@ -25,9 +25,12 @@ function MoviesCardList(props) {
                         />
                     )) : ""}
             </div>
-            {props.movies.length > 0 ? <div className="movies-card-list__button-container">
-                <button className="movies-card-list__button">Еще</button>
-            </div> : ""}
+            {(props.movies.length > 12 && window.innerWidth >= 1280) ||
+                (props.movies.length > 8 && (window.innerWidth >= 768 && window.innerWidth < 1280)) ||
+                (props.movies.length > 5 && (window.innerWidth < 768))
+                ? <div className="movies-card-list__button-container">
+                    <button className="movies-card-list__button">Еще</button>
+                </div> : ""}
         </section>
     );
 }

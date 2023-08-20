@@ -33,6 +33,10 @@ function App() {
   const [notFoundError, setNotFoundError] = React.useState(false);
   const [moviesSearchInputValue, setMoviesSearchInputValue] = React.useState('');
   const [checkboxStatus, setCheckboxStatus] = React.useState('');
+  const [savedMoviesCheckboxStatus, setSavedMoviesCheckboxStatus] = React.useState('');
+  const [savedMoviesNotFoundError, setSavedMoviesNotFoundError] = React.useState(false);
+  const [savedMoviesSearchInputValue, setSavedMoviesSearchInputValue] = React.useState('');
+  const [searchedMovies, setSearchedMovies] = React.useState([]);
 
   function getMovies(checkboxStatus) {
     setRequestError(false);
@@ -91,6 +95,32 @@ function App() {
         setRequestError(true);
         console.log(err);
       });
+  }
+
+  function searchSavedMovies(savedMoviesCheckboxStatus) {
+    setSavedMoviesNotFoundError(false);
+    if (savedMovies.length === 0) {
+      setSavedMoviesNotFoundError(true);
+    } else {
+      return savedMovies.filter(function (movie) {
+        if (savedMoviesCheckboxStatus) {
+          return (movie.nameRU.replaceAll(' ', '')
+            .toUpperCase()
+            .includes(`${savedMoviesSearchInputValue.toUpperCase()}`) ||
+            movie.nameEN.replaceAll(' ', '')
+              .toUpperCase()
+              .includes(`${savedMoviesSearchInputValue.toUpperCase()}`)) &&
+            movie.duration <= 40;
+        } else {
+          return movie.nameRU.replaceAll(' ', '')
+            .toUpperCase()
+            .includes(`${savedMoviesSearchInputValue.toUpperCase()}`) ||
+            movie.nameEN.replaceAll(' ', '')
+              .toUpperCase()
+              .includes(`${savedMoviesSearchInputValue.toUpperCase()}`);
+        }
+      });
+    }
   }
 
   function handleSignUp(name, email, password) {
@@ -186,6 +216,8 @@ function App() {
       setCheckboxStatus(localStorage.getItem('checkboxStatus'));
       setMovies(JSON.parse(localStorage.getItem('movies')));
     }
+    setSearchedMovies([]);
+    setSavedMoviesCheckboxStatus('');
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -198,13 +230,13 @@ function App() {
         .catch((err) => {
           console.log(err);
         });
-        mainApi.getSavedMovies()
+      mainApi.getSavedMovies()
         .then((data) => {
-            setSavedMovies(data.reverse());
-            console.log(data);
+          setSavedMovies(data.reverse());
+          console.log(data);
         })
         .catch((err) => {
-            console.log(err);
+          console.log(err);
         });
     }
   }, [loggedIn]);
@@ -277,6 +309,14 @@ function App() {
                   savedMovies={savedMovies}
                   setSavedMovies={setSavedMovies}
                   onCardDislike={handleCardLikeRemove}
+                  setSavedMoviesSearchInputValue={setSavedMoviesSearchInputValue}
+                  searchSavedMovies={searchSavedMovies}
+                  savedMoviesCheckboxStatus={savedMoviesCheckboxStatus}
+                  savedMoviesSearchInputValue={savedMoviesSearchInputValue}
+                  setSavedMoviesCheckboxStatus={setSavedMoviesCheckboxStatus}
+                  savedMoviesNotFoundError={savedMoviesNotFoundError}
+                  setSearchedMovies={setSearchedMovies}
+                  searchedMovies={searchedMovies}
                   preloader={preloader} />
                 {loggedIn ? <Footer /> : ""}
               </>

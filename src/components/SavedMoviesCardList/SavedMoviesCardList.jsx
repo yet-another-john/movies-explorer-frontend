@@ -19,7 +19,7 @@ function SavedMoviesCardList(props) {
                 Подождите немного и попробуйте ещё раз.</p> : ""}
             <div className="movies-card-list">
                 {props.savedMovies.length > 0 ?
-                    props.savedMovies.map((movie, i) => (
+                    props.searchedMovies.map((movie, i) => (
                         <SavedMoviesCard
                             onCardLike={props.onCardLike}
                             onCardDislike={props.onCardDislike}

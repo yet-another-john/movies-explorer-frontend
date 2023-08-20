@@ -1,6 +1,6 @@
 import React from 'react';
-import SearchForm from '../SearchForm/SearchForm';
-import FilterCheckbox from '../FilterCheckbox/FilterCheckbox';
+import SavedMoviesSearchForm from '../SavedMoviesSearchForm/SavedMoviesSearchForm';
+import SavedMoviesFilterCheckbox from '../SavedMoviesFilterCheckbox/SavedMoviesFilterCheckbox';
 import SavedMoviesCardList from '../SavedMoviesCardList/SavedMoviesCardList';
 import mainApi from '../../utils/MainApi';
 
@@ -10,6 +10,7 @@ function SavedMovies(props) {
         mainApi.getSavedMovies()
             .then((data) => {
                 props.setSavedMovies(data.reverse());
+                props.setSearchedMovies(data.reverse());
                 console.log(data);
             })
             .catch((err) => {
@@ -20,12 +21,26 @@ function SavedMovies(props) {
 
     return (
         <section>
-            <SearchForm />
-            <FilterCheckbox />
+            <SavedMoviesSearchForm
+                setSavedMoviesSearchInputValue={props.setSavedMoviesSearchInputValue}
+                searchSavedMovies={props.searchSavedMovies}
+                savedMoviesCheckboxStatus={props.savedMoviesCheckboxStatus}
+                setSearchedMovies={props.setSearchedMovies}
+                searchedMovies={props.searchedMovies}
+            />
+            <SavedMoviesFilterCheckbox
+                savedMoviesSearchInputValue={props.savedMoviesSearchInputValue}
+                setSavedMoviesCheckboxStatus={props.setSavedMoviesCheckboxStatus}
+                searchSavedMovies={props.searchSavedMovies}
+                setSearchedMovies={props.setSearchedMovies}
+                searchedMovies={props.searchedMovies}
+            />
             <SavedMoviesCardList
                 savedMovies={props.savedMovies}
                 onCardDislike={props.onCardDislike}
                 setSavedMovies={props.setSavedMovies}
+                setSearchedMovies={props.setSearchedMovies}
+                searchedMovies={props.searchedMovies}
             />
         </section>
     );
