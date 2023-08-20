@@ -1,10 +1,13 @@
-Pull request: 
+#Pull request:
+
 github.com/stoliarovea/movies-explorer-frontend/pull/4
 
 
-Проект: 
+#Проект:
+
 stoliarovea-diploma.nomoredomains.work
 
 
-Макет:
+#Макет:
+
 dropmefiles.com/YsbJg
