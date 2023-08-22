@@ -19,6 +19,7 @@ function Movies(props) {
                 getMovies={props.getMovies} />
             {props.preloader ? <Preloader /> :
                 <MoviesCardList
+                    checkboxStatus={props.checkboxStatus}
                     movies={props.movies}
                     savedMovies={props.savedMovies}
                     requestError={props.requestError}

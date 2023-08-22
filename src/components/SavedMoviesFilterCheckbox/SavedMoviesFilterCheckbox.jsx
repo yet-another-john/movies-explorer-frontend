@@ -4,11 +4,7 @@ import React from 'react';
 function SavedMoviesFilterCheckbox(props) {
 
     const handleChange = event => {
-        if (props.savedMoviesSearchInputValue) {
-            props.setSavedMoviesCheckboxStatus(event.target.checked);
-            props.setSearchedMovies(props.searchSavedMovies(event.target.checked));
-            console.log(props.searchSavedMovies(event.target.checked));
-        }
+        props.setSavedMoviesCheckboxStatus(event.target.checked);
     };
 
     return (

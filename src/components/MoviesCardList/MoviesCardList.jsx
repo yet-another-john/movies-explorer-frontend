@@ -5,6 +5,7 @@ import MoviesCard from '../MoviesCard/MoviesCard';
 function MoviesCardList(props) {
 
     const [counter, setCounter] = React.useState(0);
+    const [filteredMovies, setFilteredMovies] = React.useState([]);
 
     function handleButtonClick() {
         if (window.innerWidth >= 1280) {
@@ -37,6 +38,17 @@ function MoviesCardList(props) {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
+    React.useEffect(() => {
+        setFilteredMovies(() => {
+            if (props.movies.length !== 0) {
+                return props.movies.filter(function (movie) {
+                    return movie.duration <= 40;
+                });
+            }
+        });
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [props.movies, props.checkboxStatus]);
+
     return (
         <section>
             {props.notFoundError ? <p className="movies-card-list__not-found">Ничего не найдено.</p> : ""}
@@ -47,8 +59,19 @@ function MoviesCardList(props) {
                 <br />
                 Подождите немного и попробуйте ещё раз.</p> : ""}
             <div className="movies-card-list">
-                {props.movies.length > 0 ?
+                {(props.movies.length > 0) && (!props.checkboxStatus) ?
                     props.movies.slice(0, counter).map((movie, i) => (
+                        <MoviesCard
+                            onCardLike={props.onCardLike}
+                            onCardLikeRemove={props.onCardLikeRemove}
+                            key={movie.id}
+                            movie={movie}
+                            savedMovies={props.savedMovies}
+                        />
+                    )) : ""}
+
+                {(props.movies.length > 0) && props.checkboxStatus ?
+                    filteredMovies.slice(0, counter).map((movie, i) => (
                         <MoviesCard
                             onCardLike={props.onCardLike}
                             onCardLikeRemove={props.onCardLikeRemove}

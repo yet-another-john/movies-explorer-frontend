@@ -7,20 +7,15 @@ function Profile(props) {
 
     const currentUser = React.useContext(CurrentUserContext);
 
+    const [values, setValues] = React.useState({});
+    const [errors, setErrors] = React.useState({});
+    const [isValid, setIsValid] = React.useState(false);
+
     React.useEffect(() => {
         if (currentUser) {
             setValues(currentUser);
         }
     }, [currentUser]);
-
-    function handleSubmit(e) {
-        e.preventDefault();
-        props.onEditProfile(values);
-    }
-
-    const [values, setValues] = React.useState({});
-    const [errors, setErrors] = React.useState({});
-    const [isValid, setIsValid] = React.useState(false);
 
     const handleChange = (event) => {
         const target = event.target;
@@ -29,7 +24,20 @@ function Profile(props) {
         setValues({ ...values, [name]: value });
         setErrors({ ...errors, [name]: target.validationMessage });
         setIsValid(target.closest("form").checkValidity());
+        if (value === currentUser.name || value === currentUser.email) {
+            setIsValid(false);
+        }
     };
+
+    function handleSubmit(e) {
+        e.preventDefault();
+        props.onEditProfile(values);
+    };
+
+    console.log(currentUser.name);
+    console.log(currentUser.email);
+    console.log(values.name);
+    console.log(values.email);
 
     return (
         <section className="profile">

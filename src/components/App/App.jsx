@@ -59,22 +59,12 @@ function App() {
           setNotFoundError(true);
         } else {
           return data.filter(function (movie) {
-            if (checkboxStatus) {
-              return (movie.nameRU.replaceAll(' ', '')
+            return movie.nameRU.replaceAll(' ', '')
+              .toUpperCase()
+              .includes(`${moviesSearchInputValue.toUpperCase()}`) ||
+              movie.nameEN.replaceAll(' ', '')
                 .toUpperCase()
-                .includes(`${moviesSearchInputValue.toUpperCase()}`) ||
-                movie.nameEN.replaceAll(' ', '')
-                  .toUpperCase()
-                  .includes(`${moviesSearchInputValue.toUpperCase()}`)) &&
-                movie.duration <= 40;
-            } else {
-              return movie.nameRU.replaceAll(' ', '')
-                .toUpperCase()
-                .includes(`${moviesSearchInputValue.toUpperCase()}`) ||
-                movie.nameEN.replaceAll(' ', '')
-                  .toUpperCase()
-                  .includes(`${moviesSearchInputValue.toUpperCase()}`);
-            }
+                .includes(`${moviesSearchInputValue.toUpperCase()}`);
           });
         }
       })
@@ -103,22 +93,12 @@ function App() {
       setSavedMoviesNotFoundError(true);
     } else {
       return savedMovies.filter(function (movie) {
-        if (savedMoviesCheckboxStatus) {
-          return (movie.nameRU.replaceAll(' ', '')
+        return movie.nameRU.replaceAll(' ', '')
+          .toUpperCase()
+          .includes(`${savedMoviesSearchInputValue.toUpperCase()}`) ||
+          movie.nameEN.replaceAll(' ', '')
             .toUpperCase()
-            .includes(`${savedMoviesSearchInputValue.toUpperCase()}`) ||
-            movie.nameEN.replaceAll(' ', '')
-              .toUpperCase()
-              .includes(`${savedMoviesSearchInputValue.toUpperCase()}`)) &&
-            movie.duration <= 40;
-        } else {
-          return movie.nameRU.replaceAll(' ', '')
-            .toUpperCase()
-            .includes(`${savedMoviesSearchInputValue.toUpperCase()}`) ||
-            movie.nameEN.replaceAll(' ', '')
-              .toUpperCase()
-              .includes(`${savedMoviesSearchInputValue.toUpperCase()}`);
-        }
+            .includes(`${savedMoviesSearchInputValue.toUpperCase()}`);
       });
     }
   }
@@ -226,6 +206,7 @@ function App() {
       setCheckboxStatus(localStorage.getItem('checkboxStatus'));
       setMovies(JSON.parse(localStorage.getItem('movies')));
     }
+    setSavedMoviesSearchInputValue('');
     setSearchedMovies([]);
     setSavedMoviesCheckboxStatus('');
     // eslint-disable-next-line react-hooks/exhaustive-deps

@@ -27,6 +27,7 @@ function SavedMovies(props) {
                 savedMoviesCheckboxStatus={props.savedMoviesCheckboxStatus}
                 setSearchedMovies={props.setSearchedMovies}
                 searchedMovies={props.searchedMovies}
+                savedMovies={props.savedMovies}
             />
             <SavedMoviesFilterCheckbox
                 savedMoviesSearchInputValue={props.savedMoviesSearchInputValue}
@@ -41,6 +42,8 @@ function SavedMovies(props) {
                 setSavedMovies={props.setSavedMovies}
                 setSearchedMovies={props.setSearchedMovies}
                 searchedMovies={props.searchedMovies}
+                savedMoviesSearchInputValue={props.savedMoviesSearchInputValue}
+                searchSavedMovies={props.searchSavedMovies}
             />
         </section>
     );

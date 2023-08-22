@@ -12,19 +12,28 @@ function SavedMoviesSearchForm(props) {
         setError('');
     }
 
-    function handleSubmit(e) {
+    function handleSubmit() {
         if (input) {
             props.setSearchedMovies(props.searchSavedMovies(props.savedMoviesCheckboxStatus));
             console.log(props.searchSavedMovies(props.savedMoviesCheckboxStatus));
         } else {
             setError("Нужно ввести ключевое слово");
         }
-        e.preventDefault();
     }
+
+    React.useEffect(() => {
+        if (input) {
+            handleSubmit();
+        }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [props.savedMovies]);
 
     return (
         <>
-            <form className="search-form" onSubmit={handleSubmit} >
+            <form className="search-form" onSubmit={(e) => {
+                e.preventDefault();
+                handleSubmit();
+            }} >
                 <input
                     id="search-form__input"
                     className="search-form__input"
