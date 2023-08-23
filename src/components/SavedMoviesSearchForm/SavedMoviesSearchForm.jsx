@@ -14,8 +14,8 @@ function SavedMoviesSearchForm(props) {
 
     function handleSubmit() {
         if (input) {
-            props.setSearchedMovies(props.searchSavedMovies(props.savedMoviesCheckboxStatus));
-            console.log(props.searchSavedMovies(props.savedMoviesCheckboxStatus));
+            props.setSearchedMovies(props.searchSavedMovies());
+            console.log(props.searchSavedMovies());
         } else {
             setError("Нужно ввести ключевое слово");
         }

@@ -74,7 +74,7 @@ function App() {
         } else {
           setMovies(data);
           localStorage.setItem('moviesSearchInputValue', moviesSearchInputValue);
-          localStorage.setItem('checkboxStatus', checkboxStatus || false);
+          localStorage.setItem('checkboxStatus', checkboxStatus);
           localStorage.setItem('movies', JSON.stringify(data));
           console.log(localStorage.getItem('moviesSearchInputValue'));
           console.log(localStorage.getItem('checkboxStatus'));
@@ -87,7 +87,7 @@ function App() {
       });
   }
 
-  function searchSavedMovies(savedMoviesCheckboxStatus) {
+  function searchSavedMovies() {
     setSavedMoviesNotFoundError(false);
     if (savedMovies.length === 0) {
       setSavedMoviesNotFoundError(true);
@@ -302,8 +302,8 @@ function App() {
                   onCardDislike={handleCardLikeRemove}
                   setSavedMoviesSearchInputValue={setSavedMoviesSearchInputValue}
                   searchSavedMovies={searchSavedMovies}
-                  savedMoviesCheckboxStatus={savedMoviesCheckboxStatus}
                   savedMoviesSearchInputValue={savedMoviesSearchInputValue}
+                  savedMoviesCheckboxStatus={savedMoviesCheckboxStatus}
                   setSavedMoviesCheckboxStatus={setSavedMoviesCheckboxStatus}
                   savedMoviesNotFoundError={savedMoviesNotFoundError}
                   setSearchedMovies={setSearchedMovies}

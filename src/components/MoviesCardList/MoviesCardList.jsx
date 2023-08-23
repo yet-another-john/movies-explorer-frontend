@@ -28,6 +28,7 @@ function MoviesCardList(props) {
     });
 
     React.useEffect(() => {
+        setCounter(0);
         if (window.innerWidth >= 1280) {
             setCounter(12);
         } else if (window.innerWidth >= 768 && window.innerWidth < 1280) {
@@ -36,7 +37,7 @@ function MoviesCardList(props) {
             setCounter(5);
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, []);
+    }, [props.checkboxStatus]);
 
     React.useEffect(() => {
         setFilteredMovies(() => {
@@ -81,9 +82,16 @@ function MoviesCardList(props) {
                         />
                     )) : ""}
             </div>
-            {((props.movies.length > 12 && window.innerWidth >= 1280) ||
-                (props.movies.length > 8 && (window.innerWidth >= 768 && window.innerWidth < 1280)) ||
-                (props.movies.length > 5 && (window.innerWidth < 768))) && props.movies.length > counter
+            {((filteredMovies.length > 12 && window.innerWidth >= 1280 && props.checkboxStatus) ||
+                (filteredMovies.length > 8 && (window.innerWidth >= 768 && window.innerWidth < 1280) && props.checkboxStatus) ||
+                (filteredMovies.length > 5 && (window.innerWidth < 768) && props.checkboxStatus)) && filteredMovies.length > counter
+                ? <div className="movies-card-list__button-container">
+                    <button className="movies-card-list__button" onClick={handleButtonClick}>Еще</button>
+                </div> : ""}
+
+            {((props.movies.length > 12 && window.innerWidth >= 1280 && (!props.checkboxStatus)) ||
+                (props.movies.length > 8 && (window.innerWidth >= 768 && window.innerWidth < 1280) && (!props.checkboxStatus)) ||
+                (props.movies.length > 5 && (window.innerWidth < 768) && (!props.checkboxStatus))) && props.movies.length > counter
                 ? <div className="movies-card-list__button-container">
                     <button className="movies-card-list__button" onClick={handleButtonClick}>Еще</button>
                 </div> : ""}

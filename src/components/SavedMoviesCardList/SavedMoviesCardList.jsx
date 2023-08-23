@@ -4,9 +4,32 @@ import SavedMoviesCard from '../SavedMoviesCard/SavedMoviesCard';
 
 function SavedMoviesCardList(props) {
 
-    React.useEffect(() => {
+    const [filteredMovies, setFilteredMovies] = React.useState([]);
 
-    }, [props.savedMovies]);
+    React.useEffect(() => {
+        if (!props.savedMoviesSearchInputValue) {
+            setFilteredMovies(() => {
+                if (props.savedMovies.length !== 0) {
+                    return props.savedMovies.filter(function (movie) {
+                        return movie.duration <= 40;
+                    });
+                }
+            });
+        } else {
+            setFilteredMovies(() => {
+                if (props.searchedMovies.length !== 0) {
+                    return props.searchedMovies.filter(function (movie) {
+                        return movie.duration <= 40;
+                    });
+                }
+            });
+        }
+        console.log(props.savedMovies);
+        console.log(props.searchedMovies);
+        console.log(props.savedMoviesSearchInputValue);
+        console.log(props.savedMoviesCheckboxStatus);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [props.savedMovies, props.savedMoviesCheckboxStatus]);
 
     return (
         <section>
@@ -18,8 +41,19 @@ function SavedMoviesCardList(props) {
                 <br />
                 Подождите немного и попробуйте ещё раз.</p> : ""}
             <div className="movies-card-list">
-                {props.savedMovies.length > 0 ?
+                {(props.savedMovies.length > 0) && (!props.savedMoviesCheckboxStatus) ?
                     props.searchedMovies.map((movie, i) => (
+                        <SavedMoviesCard
+                            onCardLike={props.onCardLike}
+                            onCardDislike={props.onCardDislike}
+                            key={movie._id}
+                            movie={movie}
+                            setSavedMovies={props.setSavedMovies}
+                        />
+                    )) : ""}
+
+                {(props.savedMovies.length > 0) && props.savedMoviesCheckboxStatus ?
+                    filteredMovies.map((movie, i) => (
                         <SavedMoviesCard
                             onCardLike={props.onCardLike}
                             onCardDislike={props.onCardDislike}

@@ -4,7 +4,7 @@ import React from 'react';
 function SavedMoviesFilterCheckbox(props) {
 
     const handleChange = event => {
-        props.setSavedMoviesCheckboxStatus(event.target.checked);
+        console.log(props.setSavedMoviesCheckboxStatus(event.target.checked));
     };
 
     return (

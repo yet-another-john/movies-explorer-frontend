@@ -22,21 +22,25 @@ function SavedMovies(props) {
     return (
         <section>
             <SavedMoviesSearchForm
+                savedMoviesCheckboxStatus={props.savedMoviesCheckboxStatus}
+                setSavedMoviesCheckboxStatus={props.setSavedMoviesCheckboxStatus}
                 setSavedMoviesSearchInputValue={props.setSavedMoviesSearchInputValue}
                 searchSavedMovies={props.searchSavedMovies}
-                savedMoviesCheckboxStatus={props.savedMoviesCheckboxStatus}
                 setSearchedMovies={props.setSearchedMovies}
                 searchedMovies={props.searchedMovies}
                 savedMovies={props.savedMovies}
             />
             <SavedMoviesFilterCheckbox
-                savedMoviesSearchInputValue={props.savedMoviesSearchInputValue}
+                savedMoviesCheckboxStatus={props.savedMoviesCheckboxStatus}
                 setSavedMoviesCheckboxStatus={props.setSavedMoviesCheckboxStatus}
+                savedMoviesSearchInputValue={props.savedMoviesSearchInputValue}
                 searchSavedMovies={props.searchSavedMovies}
                 setSearchedMovies={props.setSearchedMovies}
                 searchedMovies={props.searchedMovies}
             />
             <SavedMoviesCardList
+                savedMoviesCheckboxStatus={props.savedMoviesCheckboxStatus}
+                setSavedMoviesCheckboxStatus={props.setSavedMoviesCheckboxStatus}
                 savedMovies={props.savedMovies}
                 onCardDislike={props.onCardDislike}
                 setSavedMovies={props.setSavedMovies}

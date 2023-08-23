@@ -5,6 +5,7 @@ function FilterCheckbox(props) {
 
     const handleChange = event => {
         props.setCheckboxStatus(event.target.checked);
+        localStorage.setItem('checkboxStatus', event.target.checked || false);
     };
 
     return (
@@ -15,7 +16,7 @@ function FilterCheckbox(props) {
                         id="checkbox"
                         className="filter-checkbox__input"
                         type="checkbox"
-                        //checked={JSON.parse(localStorage.getItem('checkboxStatus')) || ''}
+                        checked={JSON.parse(localStorage.getItem('checkboxStatus')) || ''}
                         onChange={handleChange}
                         required />
                     <span className="filter-checkbox__slider"></span>
