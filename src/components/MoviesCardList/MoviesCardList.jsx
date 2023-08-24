@@ -41,7 +41,7 @@ function MoviesCardList(props) {
 
     React.useEffect(() => {
         setFilteredMovies(() => {
-            if (props.movies.length !== 0) {
+            if (props.movies) {
                 return props.movies.filter(function (movie) {
                     return movie.duration <= 40;
                 });
@@ -60,7 +60,7 @@ function MoviesCardList(props) {
                 <br />
                 Подождите немного и попробуйте ещё раз.</p> : ""}
             <div className="movies-card-list">
-                {(props.movies.length > 0) && (!props.checkboxStatus) ?
+                {props.movies && (!props.checkboxStatus) ?
                     props.movies.slice(0, counter).map((movie, i) => (
                         <MoviesCard
                             onCardLike={props.onCardLike}
@@ -71,7 +71,7 @@ function MoviesCardList(props) {
                         />
                     )) : ""}
 
-                {(props.movies.length > 0) && props.checkboxStatus ?
+                {props.movies && props.checkboxStatus ?
                     filteredMovies.slice(0, counter).map((movie, i) => (
                         <MoviesCard
                             onCardLike={props.onCardLike}
