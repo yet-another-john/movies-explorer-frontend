@@ -16,7 +16,7 @@ function FilterCheckbox(props) {
                         id="checkbox"
                         className="filter-checkbox__input"
                         type="checkbox"
-                        checked={JSON.parse(localStorage.getItem('checkboxStatus')) || ''}
+                        checked={(localStorage.getItem('checkboxStatus') === "true") || ''}
                         onChange={handleChange}
                         required />
                     <span className="filter-checkbox__slider"></span>
