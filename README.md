@@ -1,3 +1,13 @@
-### Макет
+#Pull request:
 
-https://transfiles.ru/d5q1h
+github.com/stoliarovea/movies-explorer-frontend/pull/4
+
+
+#Проект:
+
+stoliarovea-diploma.nomoredomains.work
+
+
+#Макет:
+
+dropmefiles.com/YsbJg

@@ -1,18 +1,32 @@
 import React from 'react';
 import SearchForm from '../SearchForm/SearchForm';
 import FilterCheckbox from '../FilterCheckbox/FilterCheckbox';
-//import SavedMovies from '../SavedMovies/SavedMovies';
 import MoviesCardList from '../MoviesCardList/MoviesCardList';
-//import MoviesCard from '../MoviesCard/MoviesCard ';
-//import Preloader from '../Preloader/Preloader';
+import Preloader from '../Preloader/Preloader';
 
-function Movies() {
+function Movies(props) {
 
     return (
         <section>
-            <SearchForm />
-            <FilterCheckbox />
-            <MoviesCardList />
+            <SearchForm
+                setMoviesSearchInputValue={props.setMoviesSearchInputValue}
+                checkboxStatus={props.checkboxStatus}
+                getMovies={props.getMovies} />
+            <FilterCheckbox
+                movies={props.movies}
+                setCheckboxStatus={props.setCheckboxStatus}
+                moviesSearchInputValue={props.moviesSearchInputValue}
+                getMovies={props.getMovies} />
+            {props.preloader ? <Preloader /> :
+                <MoviesCardList
+                    checkboxStatus={props.checkboxStatus}
+                    movies={props.movies}
+                    savedMovies={props.savedMovies}
+                    requestError={props.requestError}
+                    notFoundError={props.notFoundError}
+                    onCardLike={props.onCardLike}
+                    onCardLikeRemove={props.onCardLikeRemove}
+                />}
         </section>
     );
 }

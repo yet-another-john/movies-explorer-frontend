@@ -1,29 +1,39 @@
-import './SearchForm.css';
+import './SavedMoviesSearchForm.css';
 import React from 'react';
 
-function SearchForm(props) {
+function SavedMoviesSearchForm(props) {
 
-    const [input, setInput] = React.useState('' || localStorage.getItem('moviesSearchInputValue'));
+    const [input, setInput] = React.useState('');
     const [error, setError] = React.useState('');
 
     function handleInputChange(e) {
         setInput(e.target.value);
-        props.setMoviesSearchInputValue(e.target.value);
+        props.setSavedMoviesSearchInputValue(e.target.value);
         setError('');
     }
 
-    function handleSubmit(e) {
+    function handleSubmit() {
         if (input) {
-            props.getMovies(props.checkboxStatus);
+            props.setSearchedMovies(props.searchSavedMovies());
+            console.log(props.searchSavedMovies());
         } else {
             setError("Нужно ввести ключевое слово");
         }
-        e.preventDefault();
     }
+
+    React.useEffect(() => {
+        if (input) {
+            handleSubmit();
+        }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [props.savedMovies]);
 
     return (
         <>
-            <form className="search-form" onSubmit={handleSubmit} >
+            <form className="search-form" onSubmit={(e) => {
+                e.preventDefault();
+                handleSubmit();
+            }} >
                 <input
                     id="search-form__input"
                     className="search-form__input"
@@ -38,4 +48,4 @@ function SearchForm(props) {
     );
 }
 
-export default SearchForm;
+export default SavedMoviesSearchForm;

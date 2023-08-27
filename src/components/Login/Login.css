@@ -1,5 +1,5 @@
 .login__submit-button {
-    margin: 214px auto 0;
+    margin: 197px auto 0;
     background: #2BE080;
     border-radius: 3px;
     width: 396px;
@@ -14,9 +14,14 @@
     cursor: pointer;
 }
 
+.login__submit-button_disabled {
+    background: #E5E5E5;
+    cursor: auto;
+}
+
 @media (max-width: 767px) {
     .login__submit-button {
-        margin: 302px auto 0;
+        margin: 286px auto 0;
         width: 260px;
         font-size: 12px;
     }

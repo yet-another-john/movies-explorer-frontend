@@ -31,6 +31,8 @@
     font-weight: 400;
     font-size: 14px;
     color: #2BE080;
+    text-decoration: none;
+    cursor: pointer;
 }
 
 @media (max-width: 1279px) {

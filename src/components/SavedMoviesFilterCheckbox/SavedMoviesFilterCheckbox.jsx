@@ -1,11 +1,10 @@
-import './FilterCheckbox.css';
+import './SavedMoviesFilterCheckbox.css';
 import React from 'react';
 
-function FilterCheckbox(props) {
+function SavedMoviesFilterCheckbox(props) {
 
     const handleChange = event => {
-        props.setCheckboxStatus(event.target.checked);
-        localStorage.setItem('checkboxStatus', event.target.checked || false);
+        console.log(props.setSavedMoviesCheckboxStatus(event.target.checked));
     };
 
     return (
@@ -16,7 +15,6 @@ function FilterCheckbox(props) {
                         id="checkbox"
                         className="filter-checkbox__input"
                         type="checkbox"
-                        checked={(localStorage.getItem('checkboxStatus') === "true") || ''}
                         onChange={handleChange}
                         required />
                     <span className="filter-checkbox__slider"></span>
@@ -28,4 +26,4 @@ function FilterCheckbox(props) {
     );
 }
 
-export default FilterCheckbox;
+export default SavedMoviesFilterCheckbox;
