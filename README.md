@@ -22,7 +22,7 @@
 
 Инструменты и стек: #HTML #CSS #React #Express #MongoDB #NodeJS #API #Nginx #JWT #Postman
 
------
+----------
 
 The final project on the web faculty at @yandex.practicum is done. 
 
