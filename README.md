@@ -33,5 +33,3 @@ Here's what was done:
 ![5](https://github.com/stoliarovea/movies-explorer-frontend/assets/31337724/86b8c38b-a29c-4f07-b7aa-f11d4069d090)
 
 ![6](https://github.com/stoliarovea/movies-explorer-frontend/assets/31337724/a41770d0-cb99-43c2-81e2-50342c9b856d)
-
-![7](https://github.com/stoliarovea/movies-explorer-frontend/assets/31337724/befdca56-9832-4ae5-b844-a1c3f29539b9)
